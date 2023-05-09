@@ -24,6 +24,11 @@ createElements();
 async function createButtons() {
   const response = await fetch('http://localhost:5678/api/categories');
   let categories = await response.json();
+  const toutesCategories = {
+    id: '0',
+    name: 'Tous',
+  }
+  categories.unshift(toutesCategories);
   console.log(categories);
   for (let i = 0; i < categories.length; i++) {
     const liste = categories[i];
@@ -38,3 +43,8 @@ async function createButtons() {
 }
 
 createButtons();
+
+function sortbyCategory() {
+  document.querySelectorAll('button');
+
+}
