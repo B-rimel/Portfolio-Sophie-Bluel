@@ -1,8 +1,9 @@
 
 async function createElements() {
-  const response = await fetch('http://localhost:5678/api/works');
-  let projets = await response.json();
+  const getWorksFromAPI = await fetch('http://localhost:5678/api/works');
+  let projets = await getWorksFromAPI.json();
   console.log(projets);
+
   for (let i = 0; i < projets.length; i++) {
     const liste = projets[i];
     const figureElement = document.createElement('figure');
@@ -22,14 +23,16 @@ createElements();
 
 
 async function createButtons() {
-  const response = await fetch('http://localhost:5678/api/categories');
-  let categories = await response.json();
+  const getProjectsFromAPI = await fetch('http://localhost:5678/api/categories');
+  let categories = await getProjectsFromAPI.json();
+
   const toutesCategories = {
     id: '0',
     name: 'Tous',
   }
   categories.unshift(toutesCategories);
   console.log(categories);
+
   for (let i = 0; i < categories.length; i++) {
     const liste = categories[i];
     const corpsBouton = document.createElement('button');
@@ -39,12 +42,14 @@ async function createButtons() {
     const boutonFiltre = document.querySelector(".filtres");
     boutonFiltre.appendChild(corpsBouton);
     corpsBouton.appendChild(texteBouton);
-    }
+  }
 }
 
 createButtons();
 
-function sortbyCategory() {
+function sortByCategory() {
   document.querySelectorAll('button');
+  
+
 
 }
