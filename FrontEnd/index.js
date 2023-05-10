@@ -30,7 +30,7 @@ genererListeProjets(projets);
 
 // Ces lignes ajoutent un bouton "toutes catégories" dans l'array de catégorie afin de l'avoir dans les boutons
   const toutesCategories = {
-    id: '0',
+    id: 0,
     name: 'Tous',
   }
   categories.unshift(toutesCategories);
@@ -48,12 +48,6 @@ for (const category of categories) {
   bouton.addEventListener('click', event => {
     // console.log(event.target.textContent)
     let filtered = category.id === 0 ? projets : projets.filter(projet => category.id === projet.categoryId);
-    console.log(filtered);
     genererListeProjets(filtered);
   })
 }
-
-// function triProjet(list, category) {
-//   return listeCategories.filter((item) => item.categories === categories);
-// }
-
