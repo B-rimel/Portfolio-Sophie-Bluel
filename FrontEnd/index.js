@@ -46,7 +46,6 @@ for (const category of categories) {
   boutonFiltre.appendChild(bouton);
 
   bouton.addEventListener('click', event => {
-    // console.log(event.target.textContent)
     let filtered = category.id === 0 ? projets : projets.filter(projet => category.id === projet.categoryId);
     genererListeProjets(filtered);
   })
