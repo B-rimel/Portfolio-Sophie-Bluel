@@ -15,7 +15,7 @@ const userLoginCredential = {
  }
 
  fetch('http://localhost:5678/api/users/login', userLoginAPI)
- .then
+    
 //  La méthode serait :
 //  -Récupérer les données saisies (eventlistener)
 //  -Envoyer ces données par la méthode POST :  
