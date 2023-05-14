@@ -10,7 +10,7 @@ validerLogin.addEventListener('submit', (userLogin) => {
 });
 
 
-console.log(userLoginCredential)
+console.log(userLoginCredential);
 
 const userLoginAPI = {
    method: POST,
@@ -18,12 +18,22 @@ const userLoginAPI = {
    body: JSON.stringify(userLoginCredential),
 }
 
-fetch('http://localhost:5678/api/users/login', userLoginAPI)
-.then(response => response.json());
-if (response.hasOwnProperty("token")) {
-   console.log('Le token existe');
-}
+// fetch('http://localhost:5678/api/users/login', userLoginAPI)
+// .then(response => response.json())
+// if (response.hasOwnProperty("token")) {
+//    console.log('Le token existe');
+// }
 
-else {
-   console.log('Le token n\'existe pas.');
-}
+// else {
+//    console.log('Le token n\'existe pas.');
+// }
+
+fetch('http://localhost:5678/api/users/login', userLoginAPI)
+  .then(response => response.json())
+  .then(data => {
+    if (data.hasOwnProperty("token")) {
+      console.log('Le token existe');
+    } else {
+      console.log('Le token n\'existe pas.');
+    }
+  })
