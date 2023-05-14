@@ -1,7 +1,7 @@
 //Ces lignes récupèrent les info de connexion de l'utilisateur
 const validerLogin = document.querySelector('.login-form');
 validerLogin.addEventListener('submit', (userLogin) => {
-   event.preventDefault();
+   userLogin.preventDefault();
    const userLoginCredential = {
       email: userLogin.target.querySelector("[name=e-mail").value,
       password: userLogin.target.querySelector("[name=password]").value,
@@ -19,7 +19,13 @@ const userLoginAPI = {
 }
 
 fetch('http://localhost:5678/api/users/login', userLoginAPI)
-.then()
+.then(response => response.json())
+.then(data => {
+  const token = data.token;
+  localStorage.setItem('userToken', token);
+  console.log(userToken);
+})
+.catch(error => console.error(error));
 
 //  La méthode serait :
 //  -Récupérer les données saisies (eventlistener)
