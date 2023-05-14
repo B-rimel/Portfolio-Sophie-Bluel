@@ -16,7 +16,8 @@ form.addEventListener('submit', async (event) => {
      const loginCommand = await response.json();
      if (response.ok) {
        window.localStorage.setItem('token', loginCommand.token);
-       console.log(loginCommand.token)
+       console.log(loginCommand.token);
+       location.href='index.html';
      } else {
        alert('Le token n\'existe pas.');
      }
