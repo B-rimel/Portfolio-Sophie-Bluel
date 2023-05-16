@@ -5,6 +5,8 @@
   const getProjectsFromAPI = await fetch('http://localhost:5678/api/categories');
   let categories = await getProjectsFromAPI.json();
 
+  const token = localStorage.getItem('token');
+  console.log(token);
 // Ces lignes affichent tout les projets dans la page à partir de getWorksFromAPI
 function genererListeProjets(projets){
   const ficheWorks = document.querySelector(".gallery");
@@ -27,7 +29,6 @@ genererListeProjets(projets);
 
 
 
-
 // Ces lignes ajoutent un bouton "toutes catégories" dans l'array de catégorie afin de l'avoir dans les boutons
   const toutesCategories = {
     id: 0,
@@ -38,6 +39,7 @@ genererListeProjets(projets);
 
 
 // Ces lignes crééent les boutons de filtre
+if (!token){
 for (const category of categories) {
   const bouton = document.createElement('button');
   bouton.textContent = category.name;
@@ -49,4 +51,21 @@ for (const category of categories) {
     let filtered = category.id === 0 ? projets : projets.filter(projet => category.id === projet.categoryId);
     genererListeProjets(filtered);
   })
+}
+}
+
+// Ces lignes affichent un bouton modifier dans la section introduction si le token existe
+if(token){
+  const sectionHeader = document.querySelector('header');
+  const header = document.createElement('div');
+  header.id='headerLogin';
+  const texteHeader = document.createElement('p');
+  texteHeader.innerHTML = 'Mode édition';
+  const boutonHeader = document.createElement('button');
+  boutonHeader.innerHTML = 'Publier les changements';
+  
+  sectionHeader.prepend(header);
+  header.appendChild(texteHeader)
+  header.appendChild(boutonHeader);
+  insertBefore(header, sectionHeader);
 }

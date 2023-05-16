@@ -54,10 +54,34 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
+
 header {
-	display: flex;
-	justify-content: space-between;
 	margin: 50px 0
+}
+
+#navBar {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 0;
+}
+
+#headerLogin {
+	display: flex;
+	background-color: black;
+	color: white;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	margin: auto;
+}
+
+#headerLogin button {
+	background-color: white;
+	color: black;
+	padding: 11px 23px;
+	width: auto;
 }
 section {
 	margin: 50px 0
