@@ -38,7 +38,7 @@ genererListeProjets(projets);
   console.log(categories);
 
 
-// Ces lignes crééent les boutons de filtre
+// Ces lignes crééent les boutons de filtre, seulement si l'utilisateur n'est pas connecté
 if (!token){
 for (const category of categories) {
   const bouton = document.createElement('button');
@@ -54,7 +54,7 @@ for (const category of categories) {
 }
 }
 
-// Ces lignes affichent un bouton modifier dans la section introduction si le token existe
+// Ces lignes affichent un bouton modifier dans la section introduction si l'utilisateur est connecté
 if(token){
   const sectionHeader = document.querySelector('header');
   const header = document.createElement('div');
@@ -75,7 +75,7 @@ if(token){
 }
 
 // Ces lignes changent le texte "login" en "logout" si l'utilisateur est connecté
-const boutonLogin = document.querySelector('#login');
+const boutonLogin = document.querySelector('#bouton_login');
 if(token){
   boutonLogin.innerText = 'logout'
 }
