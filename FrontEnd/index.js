@@ -60,12 +60,26 @@ if(token){
   const header = document.createElement('div');
   header.id='headerLogin';
   const texteHeader = document.createElement('p');
-  texteHeader.innerHTML = 'Mode édition';
+  texteHeader.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Mode édition';
   const boutonHeader = document.createElement('button');
   boutonHeader.innerHTML = 'Publier les changements';
   
   sectionHeader.prepend(header);
   header.appendChild(texteHeader)
   header.appendChild(boutonHeader);
-  insertBefore(header, sectionHeader);
+
+  const sectionIntro = document.querySelector('#sectionIntroduction');
+  const modifierPhoto = document.createElement('p');
+  modifierPhoto.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Modifier';
+  sectionIntro.appendChild(modifierPhoto);
 }
+
+// Ces lignes changent le texte "login" en "logout" si l'utilisateur est connecté
+const boutonLogin = document.querySelector('#login');
+if(token){
+  boutonLogin.innerText = 'logout'
+}
+else {
+  boutonLogin.innerText = 'login';
+}
+
