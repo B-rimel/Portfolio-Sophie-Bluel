@@ -5,7 +5,7 @@
   const getProjectsFromAPI = await fetch('http://localhost:5678/api/categories');
   let categories = await getProjectsFromAPI.json();
 
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
   console.log(token);
 // Ces lignes affichent tout les projets dans la page à partir de getWorksFromAPI
 function genererListeProjets(projets){

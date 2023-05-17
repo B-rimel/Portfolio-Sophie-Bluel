@@ -15,7 +15,7 @@ form.addEventListener('submit', async (event) => {
    const response = await fetch('http://localhost:5678/api/users/login', userLoginAPI);
    const loginCommand = await response.json();
    if (response.ok) {
-      window.localStorage.setItem('token', loginCommand.token);
+      window.sessionStorage.setItem('token', loginCommand.token);
       console.log(loginCommand.token);
       location.href = 'index.html';
    } else {
