@@ -60,6 +60,7 @@ if(token){
   const header = document.createElement('div');
   header.id='headerLogin';
   const texteHeader = document.createElement('p');
+  texteHeader.id = 'boutonModif';
   texteHeader.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Mode édition';
   const boutonHeader = document.createElement('button');
   boutonHeader.innerHTML = 'Publier les changements';
@@ -71,7 +72,14 @@ if(token){
   const sectionIntro = document.querySelector('#sectionIntroduction');
   const modifierPhoto = document.createElement('p');
   modifierPhoto.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Modifier';
+  modifierPhoto.id = 'boutonModif';
   sectionIntro.appendChild(modifierPhoto);
+
+  const sectionWorks = document.querySelector('#sectionProjet');
+  const modifierWorks = document.createElement('p');
+  modifierWorks.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Modifier';
+  modifierWorks.id = 'boutonModif';
+  sectionWorks.appendChild(modifierWorks);
 }
 
 // Ces lignes changent le texte "login" en "logout" si l'utilisateur est connecté
@@ -82,4 +90,6 @@ if(token){
 else {
   boutonLogin.innerText = 'login';
 }
+
+//Ces lignes affichent la modale
 
