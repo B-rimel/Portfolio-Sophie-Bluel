@@ -77,7 +77,7 @@ if(token){
 
   const sectionWorks = document.querySelector('#sectionProjet');
   const modifierWorks = document.createElement('p');
-  modifierWorks.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Modifier';
+  modifierWorks.innerHTML = '<a href="#modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>';
   modifierWorks.id = 'boutonModif';
   sectionWorks.appendChild(modifierWorks);
 }
@@ -91,5 +91,23 @@ else {
   boutonLogin.innerText = 'login';
 }
 
-//Ces lignes affichent la modale
+//Ces lignes affichent les projets dans la modale
+function fenetreModale1(projets){
+  const modaleWorks = document.querySelector("#modale1");
+  modaleWorks.innerHTML='';
+    for (const projet of projets) {
+    // const liste = projet;
+    const wrapperElement = document.createElement('div');
+    wrapperElement.id= 'works-editer';
+    const imageElement = document.createElement('img');
+    imageElement.src = projet.imageUrl;
+    const titreElement = document.createElement('p');
+    titreElement.innerText = 'éditer';
+    modaleWorks.appendChild(wrapperElement);
+    wrapperElement.appendChild(imageElement);
+    wrapperElement.appendChild(titreElement);
 
+  }
+}
+
+fenetreModale1(projets);

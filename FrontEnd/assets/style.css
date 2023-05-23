@@ -228,3 +228,42 @@ footer nav ul {
 	font-weight: 400;
 	color: black;
 }
+
+ #modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+ }
+
+ #modal-wrapper {
+	justify-content: center;
+	overflow: auto;
+	width: 50%;
+	height: auto;
+	padding: 20px;
+	background-color: white;
+ }
+
+ #modale1 {
+	width: 80%;
+	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-row-gap: 11px;
+	justify-items: center;
+}
+
+#works-editer {
+	width: auto;
+}
+
+#works-editer img {
+	width: 78px;
+	height: 104px;
+}
