@@ -79,7 +79,6 @@ if (token) {
   const modifierWorks = document.createElement('p');
   modifierWorks.id = 'boutonModale';
   modifierWorks.innerHTML = '<a href="#modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>';
-  modifierWorks.id = 'boutonModif';
   sectionWorks.appendChild(modifierWorks);
 }
 
@@ -153,4 +152,5 @@ function fenetreModale(projets) {
   }
 }
 
-fenetreModale(projets);
+boutonModale.addEventListener('click', event => fenetreModale(projets));
+// fenetreModale(projets);
