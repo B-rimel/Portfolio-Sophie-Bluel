@@ -92,28 +92,6 @@ else {
 }
 
 
-//Ces lignes affichent la modale 
-
-//Ces lignes affichent les projets dans la modale
-// function fenetreModale1(projets){
-//   const modaleWorks = document.querySelector("#modale1");
-//   modaleWorks.innerHTML='';
-//     for (const projet of projets) {
-//     // const liste = projet;
-//     const wrapperElement = document.createElement('div');
-//     wrapperElement.id= 'works-editer';
-//     const imageElement = document.createElement('img');
-//     imageElement.src = projet.imageUrl;
-//     const titreElement = document.createElement('p');
-//     titreElement.innerText = 'éditer';
-//     modaleWorks.appendChild(wrapperElement);
-//     wrapperElement.appendChild(imageElement);
-//     wrapperElement.appendChild(titreElement);
-
-//   }
-// }
-
-
 function fenetreModale(projets) {
   const modaleWorks = document.querySelector('main');
 
@@ -134,23 +112,24 @@ function fenetreModale(projets) {
   grillePremiereModale.id = 'grille-modale';
   fenetreModale.appendChild(grillePremiereModale);
 
-    const boutonFermer = document.createElement('i');
-    boutonFermer.className = 'fas fa-xmark';
-    fenetreModale.appendChild(boutonFermer);
-  for (const projet of projets) {
+  const boutonFermer = document.createElement('i');
+  boutonFermer.className = 'fas fa-xmark';
+  fenetreModale.appendChild(boutonFermer);
+  boutonFermer.addEventListener('click', event => modaleWrapper.remove())
 
+
+
+  for (const projet of projets) {
     const elementGrille = document.createElement('div');
     const imageGrille = document.createElement('img');
-      imageGrille.src = projet.imageUrl;
+    imageGrille.src = projet.imageUrl;
     const texteGrille = document.createElement('p');
-      texteGrille.innerText = 'éditer';
+    texteGrille.innerText = 'éditer';
     grillePremiereModale.appendChild(elementGrille);
     elementGrille.appendChild(imageGrille);
     elementGrille.appendChild(texteGrille);
-
 
   }
 }
 
 boutonModale.addEventListener('click', event => fenetreModale(projets));
-// fenetreModale(projets);
