@@ -115,7 +115,8 @@ function fenetreModale(projets) {
   const boutonFermer = document.createElement('i');
   boutonFermer.className = 'fas fa-xmark';
   fenetreModale.appendChild(boutonFermer);
-  boutonFermer.addEventListener('click', event => modaleWrapper.remove())
+  boutonFermer.addEventListener('click', event => modaleWrapper.remove());
+  modaleWrapper.addEventListener('click', event => modaleWrapper.remove());
 
 
 
