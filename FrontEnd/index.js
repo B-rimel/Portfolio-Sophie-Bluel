@@ -103,6 +103,10 @@ function fenetreModale(projets) {
   const fenetreModale = document.createElement('div');
   fenetreModale.id = 'modale-fenetre';
   modaleWrapper.appendChild(fenetreModale);
+  fenetreModale.addEventListener('click', stopPropagation);
+  function stopPropagation(e){
+    e.stopPropagation();
+  }
 
   const titrePremiereModale = document.createElement('h1');
   titrePremiereModale.innerText = 'Galerie photo';

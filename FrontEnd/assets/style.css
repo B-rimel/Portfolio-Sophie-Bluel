@@ -243,6 +243,7 @@ footer nav ul {
  }
 
  #modale-fenetre {
+	position: relative;
 	justify-content: center;
 	overflow: auto;
 	width: 50%;
