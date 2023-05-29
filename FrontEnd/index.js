@@ -124,6 +124,7 @@ function fenetreModale(projets) {
 
 
 
+
   for (const projet of projets) {
     const elementGrille = document.createElement('div');
     elementGrille.dataset.id = projet.id;
@@ -140,27 +141,28 @@ function fenetreModale(projets) {
     divBoutons.id = 'boutons-modale';
     elementGrille.appendChild(divBoutons);
 
+    const boutonEditer = document.createElement('p');
+    boutonEditer.innerHTML = '<i class="fa-solid fa-arrows-up-down-left-right"></i>';
+    divBoutons.appendChild(boutonEditer);
+    boutonEditer.style.display = 'none';
+    elementGrille.addEventListener('mouseover', function(event) {
+      boutonEditer.style.display = 'block';
+    })
+
     const boutonSupprimer = document.createElement('p');
     boutonSupprimer.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
     divBoutons.appendChild(boutonSupprimer);
 
-    const boutonEditer = document.createElement('p');
-    boutonEditer.innerHTML = '<i class="fa-solid fa-arrows-up-down-left-right"></i>';
-    divBoutons.appendChild(boutonEditer);
 
-
+    boutonSupprimer.addEventListener('click', function(event){
+      const projetASupprimer = event.target.closest('#element-grille');
+      const projetId = projetASupprimer.dataset.id;
+      fetch(`http://localhost:5678/api/works/${projetId}`, {
+        method: 'DELETE',
+        headers: {'Authorization': `Bearer ${token}`}
+      })
+    })
   }
 }
 
 boutonModale.addEventListener('click', event => fenetreModale(projets));
-
-// boutonSupprimer.addEventListener('click', function(event){
-//   const projetASupprimer = event.target.closest('div');
-//   const projetId = projetASupprimer.dataset.id;
-//   fetch('http://localhost:5678/api/works/${projetId}', {
-//     method: 'DELETE';
-//     headers: {
-      
-//     }
-//   })
-// })
