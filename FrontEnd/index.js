@@ -126,6 +126,8 @@ function fenetreModale(projets) {
 
   for (const projet of projets) {
     const elementGrille = document.createElement('div');
+    elementGrille.dataset.id = projet.id;
+    elementGrille.id = 'element-grille';
     const imageGrille = document.createElement('img');
     imageGrille.src = projet.imageUrl;
     const texteGrille = document.createElement('p');
@@ -134,7 +136,31 @@ function fenetreModale(projets) {
     elementGrille.appendChild(imageGrille);
     elementGrille.appendChild(texteGrille);
 
+    const divBoutons = document.createElement('div');
+    divBoutons.id = 'boutons-modale';
+    elementGrille.appendChild(divBoutons);
+
+    const boutonSupprimer = document.createElement('p');
+    boutonSupprimer.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+    divBoutons.appendChild(boutonSupprimer);
+
+    const boutonEditer = document.createElement('p');
+    boutonEditer.innerHTML = '<i class="fa-solid fa-arrows-up-down-left-right"></i>';
+    divBoutons.appendChild(boutonEditer);
+
+
   }
 }
 
 boutonModale.addEventListener('click', event => fenetreModale(projets));
+
+// boutonSupprimer.addEventListener('click', function(event){
+//   const projetASupprimer = event.target.closest('div');
+//   const projetId = projetASupprimer.dataset.id;
+//   fetch('http://localhost:5678/api/works/${projetId}', {
+//     method: 'DELETE';
+//     headers: {
+      
+//     }
+//   })
+// })
