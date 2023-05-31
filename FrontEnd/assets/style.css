@@ -261,7 +261,7 @@ footer nav ul {
 		margin: 60px 230px 46px 230px;
 	}
  }
- 
+
  #grille-modale {
 	width: 80%;
 	align-items: center;
@@ -313,3 +313,12 @@ footer nav ul {
 	  }
 }
 
+#controles-modale{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	& p {
+		color: #D65353;
+	}
+}
