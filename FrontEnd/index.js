@@ -91,7 +91,7 @@ else {
   boutonLogin.innerText = 'login';
 }
 
-
+//Cette fonction affiche la modale
 function fenetreModale(projets) {
   const modaleWorks = document.querySelector('main');
 
@@ -116,6 +116,20 @@ function fenetreModale(projets) {
   grillePremiereModale.id = 'grille-modale';
   fenetreModale.appendChild(grillePremiereModale);
 
+  const controlesModale = document.createElement('div');
+  controlesModale.id = 'controles-modale';
+  fenetreModale.appendChild(controlesModale);
+
+
+  const boutonDeuxiemeModale = document.createElement('button');
+  boutonDeuxiemeModale.innerText = 'Ajouter une photo';
+  controlesModale.appendChild(boutonDeuxiemeModale);
+
+  const boutonSupprimerGalerie = document.createElement('p');
+  boutonSupprimerGalerie.innerText = 'Supprimer la galerie';
+  boutonSupprimerGalerie.id = 'bouton-supprimer';
+  controlesModale.appendChild(boutonSupprimerGalerie);
+
   const boutonFermer = document.createElement('i');
   boutonFermer.className = 'fas fa-xmark';
   fenetreModale.appendChild(boutonFermer);
@@ -124,7 +138,7 @@ function fenetreModale(projets) {
 
 
 
-
+//Cette boucle affiche les projets dans la modale
   for (const projet of projets) {
     const elementGrille = document.createElement('div');
     elementGrille.dataset.id = projet.id;
@@ -145,9 +159,14 @@ function fenetreModale(projets) {
     boutonEditer.innerHTML = '<i class="fa-solid fa-arrows-up-down-left-right"></i>';
     divBoutons.appendChild(boutonEditer);
     boutonEditer.style.display = 'none';
+
     elementGrille.addEventListener('mouseover', function(event) {
       boutonEditer.style.display = 'block';
-    })
+    }); 
+
+    elementGrille.addEventListener('mouseout', function(event){
+      boutonEditer.style.display = 'none';
+    });
 
     const boutonSupprimer = document.createElement('p');
     boutonSupprimer.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
@@ -160,6 +179,9 @@ function fenetreModale(projets) {
       fetch(`http://localhost:5678/api/works/${projetId}`, {
         method: 'DELETE',
         headers: {'Authorization': `Bearer ${token}`}
+      })
+      .then(() => {
+        fenetreModale(projets);
       })
     })
   }
