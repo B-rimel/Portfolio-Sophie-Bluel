@@ -85,4 +85,4 @@ else {
   boutonLogin.innerText = 'login';
 }
 
-export {token, projets, categories};
+export {token, projets, categories, genererListeProjets};
