@@ -270,7 +270,7 @@ footer nav ul {
 
  #grille-works {
 	position: relative;
-	width: 80%;
+	width: 60%;
 	align-items: center;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

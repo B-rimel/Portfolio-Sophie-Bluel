@@ -66,8 +66,8 @@ function fermerModale() {
 
 fermerModale();
 function afficherModale() {
-  const fenetreModale = document.querySelector('#modale-wrapper');
-  fenetreModale.style.display = 'flex';
+  const fenetreModale1 = document.querySelector('.modale1');
+  fenetreModale1.style.display = 'flex';
 }
 
 modifierWorks.addEventListener('click', afficherModale);
