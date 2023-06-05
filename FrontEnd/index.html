@@ -54,14 +54,14 @@
         </div>
         <h1>Ajout photo</h1>
         <div id="fenetre-ajout">
-          <label for="input-photo">
-            <i class="fa-solid fa-image"></i>
-            <button>+ Ajouter photo</button>
-          </label>
-          <input type="file" id="input-photo" accept="image/jpeg, image/png" style="display: none" />
+          <i class="fa-solid fa-image"></i>
+            <input type="file" id="input-photo" accept="image/jpeg, image/png" value="+ Ajouter Photo"/>
+            <label for="input-photo"></label>
+
           <p>jpg, png : 4mo max</p>
         </div>
-        <form action="post">
+        <div>
+          <form class='' action="post">
           <label for="title">Titre</label>
           <input type="text" />
           <label for="select">Catégorie</label>
@@ -69,9 +69,11 @@
           <hr>
           <button>Valider</button>
         </form>
+        </div>
+
       </div>
     </aside>
-    
+
 
 
     <section id="introduction">

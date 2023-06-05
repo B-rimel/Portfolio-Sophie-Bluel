@@ -99,7 +99,7 @@ for (const projet of projets) {
   const figureGrille = document.createElement('figure');
   figureGrille.dataset.id = projet.id;
   grilleWorks.appendChild(figureGrille);
-  figureGrille.id = 'figure-grille'
+  figureGrille.id = 'figure-grille';
 
   const imageGrille = document.createElement('img');
   imageGrille.src = projet.imageUrl;

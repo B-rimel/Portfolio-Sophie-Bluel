@@ -286,10 +286,6 @@ footer nav ul {
 	}
 }
 
-#figure-grille {
-	position: relative;
-}
-
 #boutons-modale {
 	display: flex;
 	position: absolute;
@@ -314,7 +310,7 @@ footer nav ul {
 	  }
 }
 
-#controles-modale{
+#controles-modale {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -323,3 +319,65 @@ footer nav ul {
 		color: #D65353;
 	}
 }
+
+.modale2 {
+	display: none;
+	width: 80%;
+	justify-content: center;
+	font-family: 'Work Sans';
+	& form {
+		width: 80%;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		font-weight: 500;
+		text-align: start;
+	}
+		& input, select {
+			text-align: left;
+			width: 420px;
+			height: 50px;
+			box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+			
+			& label {
+				font-weight: 500;
+				margin-bottom: 10px;
+			}
+		}
+
+		& #fenetre-ajout {
+			margin: auto;
+			width: 80%;
+			background-color: #e8f1f7;
+			justify-content: center;
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+
+			& i {
+				font-size: 58px;
+			}
+
+			& input {
+				border: none;
+				border-radius: 18px;
+				width: 173px; height: 36px;
+				font-family: 'Work Sans';
+				font-style: normal;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 16px;
+				text-align: center;
+				color: #306685;
+			}
+
+		}
+
+		& button {
+			background-color: #a7a7a7;
+			border: none;
+		}
+
+	}
+
