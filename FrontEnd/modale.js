@@ -58,10 +58,22 @@ sectionWorks.appendChild(modifierWorks);
 
 
 //   //Cette boucle affiche les projets dans la modale
+const boutonModale2 = document.querySelector('#bouton-suivant');
+boutonModale2.addEventListener('click', event => deuxiemeModale());
+
 function fermerModale() {
   const boutonFermer = document.querySelector('#bouton-fermer');
   const modaleWrapper = document.querySelector('#modale-wrapper');
-  boutonFermer.addEventListener('click', event => modaleWrapper.style.display = 'none');
+
+  boutonFermer.addEventListener('click', event => {
+    modaleWrapper.style.display = 'none';
+  });
+
+  modaleWrapper.addEventListener('click', event => {
+    if (event.target === modaleWrapper) {
+      modaleWrapper.style.display = 'none';
+    }
+  });
 }
 
 fermerModale();
@@ -69,6 +81,14 @@ function afficherModale() {
   const fenetreModale1 = document.querySelector('.modale1');
   fenetreModale1.style.display = 'flex';
 }
+
+function deuxiemeModale() {
+  const fenetreModale1 = document.querySelector('.modale1');
+  const fenetreModale2 = document.querySelector('.modale2');
+  fenetreModale1.style.display = 'none';
+  fenetreModale2.style.display = 'flex';
+}
+
 
 modifierWorks.addEventListener('click', afficherModale);
 

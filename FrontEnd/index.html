@@ -40,7 +40,7 @@
         </div>
         <hr>
         <div id="controles-modale">
-          <button>Ajouter une photo</button>
+          <button id="bouton-suivant">Ajouter une photo</button>
           <p>Supprimer la galerie</p>
         </div>
       </div>
@@ -54,20 +54,24 @@
         </div>
         <h1>Ajout photo</h1>
         <div id="fenetre-ajout">
-          <p><i class="fa-solid fa-image"></i></p>
-          <button>+ Ajouter photo</button>
+          <label for="input-photo">
+            <i class="fa-solid fa-image"></i>
+            <button>+ Ajouter photo</button>
+          </label>
+          <input type="file" id="input-photo" accept="image/jpeg, image/png" style="display: none" />
           <p>jpg, png : 4mo max</p>
         </div>
         <form action="post">
           <label for="title">Titre</label>
           <input type="text" />
           <label for="select">Catégorie</label>
-          <select name="categorie" id="castegorie"></select>
+          <select name="categorie" id="categorie"></select>
           <hr>
           <button>Valider</button>
         </form>
       </div>
     </aside>
+    
 
 
     <section id="introduction">
