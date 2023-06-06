@@ -3,19 +3,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -23,35 +91,56 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul, a{
+
+ol,
+ul,
+a {
 	list-style: none;
 	text-decoration: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
+	margin: auto;
+	font-family: 'Work Sans';
 	font-size: 14px;
 }
 
@@ -87,11 +176,12 @@ button {
 	padding: 10px;
 
 }
+
 section {
 	margin: 50px 0
 }
 
-h1{
+h1 {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
@@ -100,25 +190,27 @@ h1{
 	color: #B1663C
 }
 
-h1 > span {
+h1>span {
 	font-family: 'Work Sans';
-	font-size:10px;
+	font-size: 10px;
 	letter-spacing: 0.1em;
-;
+	;
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -127,13 +219,16 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -143,6 +238,7 @@ li:hover {
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -150,10 +246,12 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -166,34 +264,47 @@ li:hover {
 	width: 100%;
 
 }
-#contact, #login {
+
+#contact,
+#login {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
-#contact  > *, #login > * {
+
+#contact>*,
+#login>* {
 	text-align: center;
 
 }
-#contact h2, #login h2{
+
+#contact h2,
+#login h2 {
 	margin-bottom: 20px;
 }
-#contact form, #login form {
+
+#contact form,
+#login form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input, #login input {
+#contact input,
+#login input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label, #login label {
+
+#contact label,
+#login label {
 	margin: 2em 0 1em 0;
 }
-#contact textarea, #login textarea {
+
+#contact textarea,
+#login textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -203,7 +314,7 @@ button {
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin : 2em auto;
+	margin: 2em auto;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px;
@@ -221,7 +332,7 @@ footer nav ul {
 	align-items: center;
 }
 
-#boutonModale { 
+#boutonModale {
 	margin-left: 20px;
 	font-family: 'Work Sans';
 	font-size: 14px;
@@ -229,7 +340,7 @@ footer nav ul {
 	color: black;
 }
 
- #modale-wrapper {
+#modale-wrapper {
 	text-align: center;
 	display: flex;
 	align-items: center;
@@ -241,14 +352,14 @@ footer nav ul {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.8);
 	display: none;
- }
+}
 
- #modale-fenetre {
-	display:flex;
-	flex-direction: column; 
+#modale-fenetre {
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	overflow: auto;
-	width: 50%;
+	width: 40%;
 	height: auto;
 	padding: 20px;
 	background-color: white;
@@ -261,14 +372,14 @@ footer nav ul {
 		color: black;
 		justify-content: center;
 	}
- }
+}
 
- #barre-controle {
+#barre-controle {
 	display: flex;
 	justify-content: space-between;
- }
+}
 
- #grille-works {
+#grille-works {
 	position: relative;
 	width: 60%;
 	align-items: center;
@@ -307,7 +418,7 @@ footer nav ul {
 		height: 17px;
 		width: 17px;
 		color: white;
-	  }
+	}
 }
 
 #controles-modale {
@@ -325,8 +436,9 @@ footer nav ul {
 	width: 80%;
 	justify-content: center;
 	font-family: 'Work Sans';
+
 	& form {
-		width: 80%;
+		width: 60%;
 		margin: auto;
 		display: flex;
 		flex-direction: column;
@@ -334,50 +446,66 @@ footer nav ul {
 		font-weight: 500;
 		text-align: start;
 	}
-		& input, select {
-			text-align: left;
-			width: 420px;
-			height: 50px;
-			box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-			
-			& label {
-				font-weight: 500;
-				margin-bottom: 10px;
-			}
+
+	& label {
+		font-family: 'Work Sans';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 16px;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		color: #3D3D3D;
+	}
+
+	& input,
+	select {
+		text-align: left;
+		width: 420px;
+		height: 50px;
+		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+
+	}
+
+	& #fenetre-ajout {
+		margin: auto;
+		margin-top: 39px;
+		width: 60%;
+		background-color: #e8f1f7;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		padding: 19px;
+
+		& i {
+			font-size: 58px;
 		}
 
-		& #fenetre-ajout {
-			margin: auto;
-			width: 80%;
-			background-color: #e8f1f7;
-			justify-content: center;
-			align-items: center;
-			display: flex;
-			flex-direction: column;
-
-			& i {
-				font-size: 58px;
-			}
-
-			& input {
-				border: none;
-				border-radius: 18px;
-				width: 173px; height: 36px;
-				font-family: 'Work Sans';
-				font-style: normal;
-				font-weight: 500;
-				font-size: 14px;
-				line-height: 16px;
-				text-align: center;
-				color: #306685;
-			}
-
-		}
-
-		& button {
-			background-color: #a7a7a7;
+		& input {
 			border: none;
+			border-radius: 18px;
+			width: 173px;
+			height: 36px;
+			font-family: 'Work Sans';
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 16px;
+			text-align: center;
+			color: #306685;
 		}
 
 	}
 
+	& button {
+		background-color: #a7a7a7;
+		border: none;
+	}
+
+}
+
+#input-modale {
+	width:60%;
+	margin: auto;
+}

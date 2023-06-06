@@ -11,55 +11,16 @@ const sectionWorks = document.querySelector('#sectionProjet');
 const modifierWorks = document.createElement('p');
 modifierWorks.innerHTML = '<a href="#modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>';
 sectionWorks.appendChild(modifierWorks);
-// function fenetreModale(projets) {
-//   const modaleWorks = document.querySelector('main');
 
-//   const modaleWrapper = document.createElement('aside');
-//   modaleWrapper.id = 'modale-wrapper';
-//   modaleWorks.appendChild(modaleWrapper);
-
-//   const modale = document.createElement('div');
-//   modale.id = 'modale-fenetre';
-//   modaleWrapper.appendChild(modale);
-//   modale.addEventListener('click', stopPropagation);
-//   function stopPropagation(e) {
-//     e.stopPropagation();
-//   }
-
-//   const titrePremiereModale = document.createElement('h1');
-//   titrePremiereModale.innerText = 'Galerie photo';
-//   modale.appendChild(titrePremiereModale);
-
-//   const grillePremiereModale = document.createElement('div');
-//   grillePremiereModale.id = 'grille-modale';
-//   modale.appendChild(grillePremiereModale);
-
-//   const controlesModale = document.createElement('div');
-//   controlesModale.id = 'controles-modale';
-//   modale.appendChild(controlesModale);
-
-
-//   const boutonDeuxiemeModale = document.createElement('button');
-//   boutonDeuxiemeModale.innerText = 'Ajouter une photo';
-//   controlesModale.appendChild(boutonDeuxiemeModale);
-//   boutonDeuxiemeModale.addEventListener('click', event => fenetreModale2(modale, boutonFermer));
-
-//   const boutonSupprimerGalerie = document.createElement('p');
-//   boutonSupprimerGalerie.innerText = 'Supprimer la galerie';
-//   boutonSupprimerGalerie.id = 'bouton-supprimer';
-//   controlesModale.appendChild(boutonSupprimerGalerie);
-
-//   const boutonFermer = document.createElement('i');
-//   boutonFermer.className = 'fas fa-xmark';
-//   modale.appendChild(boutonFermer);
-//   boutonFermer.addEventListener('click', event => modaleWrapper.remove());
-//   modaleWrapper.addEventListener('click', event => modaleWrapper.remove());
-
-
-
-//   //Cette boucle affiche les projets dans la modale
 const boutonModale2 = document.querySelector('#bouton-suivant');
 boutonModale2.addEventListener('click', event => deuxiemeModale());
+
+
+
+function afficherModale() {
+  const fenetreModale1 = document.querySelector('.modale1');
+  fenetreModale1.style.display = 'flex';
+}
 
 function fermerModale() {
   const boutonFermer = document.querySelector('#bouton-fermer');
@@ -77,10 +38,6 @@ function fermerModale() {
 }
 
 fermerModale();
-function afficherModale() {
-  const fenetreModale1 = document.querySelector('.modale1');
-  fenetreModale1.style.display = 'flex';
-}
 
 function deuxiemeModale() {
   const fenetreModale1 = document.querySelector('.modale1');
@@ -157,34 +114,32 @@ function supprimerProjet(){
 }
 genererListeProjets(projets);
 
+for (const category of categories) {
+  const menuElement = document.createElement('option');
+  menuElement.textContent = category.name;
+  const menu = document.querySelector('select');
+  menu.appendChild(menuElement);
+}
 
+const inputImage = document.getElementById('input-photo');
+const elementImage = inputImage.files[0];
+const tailleMaximum = 2048 * 2048;
+let imageValide = false;
 
+if (elementImage && elementImage.size > tailleMaximum) {
+  alert('Le fichier est trop gros');
+} 
+else {
+  const imageValide = true;
+  UrlImage = elementImage.createObjectURL(elementImage);
+  console.log(UrlImage);
+}
 
+const champTexte = document.getElementById('input-texte').value;
+const champCategorie = document.getElementById('categorie').value;
 
-// boutonModale.addEventListener('click', event => fenetreModale(projets));
-
-// function fenetreModale2(modale, boutonFermer) {
-//   modale.innerHTML = ''; //Cette ligne supprime les éléments de la modale
-
-
-
-//   const containerBoutons = document.createElement('div');
-//   modale.appendChild(containerBoutons);
-//   const boutonPrecedent = document.createElement('i');
-//   boutonPrecedent.className = 'fa-solid fa-arrow-left';
-//   containerBoutons.appendChild(boutonPrecedent);
-//   containerBoutons.appendChild(boutonFermer);
-//   boutonPrecedent.addEventListener('click', function() {
-//     viderModale();
-//     fenetreModale(projets);
-//   });
-
-//   const titreDeuxiemeModale = document.createElement('h1');
-//   titreDeuxiemeModale.innerText = 'Ajout photo';
-//   modale.appendChild(titreDeuxiemeModale);
-
-//   function viderModale(modaleWrapper) {
-//     modale.remove();
-//     fenetreModale(projets);
-//   }
-// }
+if (imageValide === true && champTexte !== '' && champCategorie.trim() !== '') {
+  console.log('Ca marchera');
+  const boutonEnvoyer = document.getElementById('button-envoyer');
+  boutonEnvoyer.style.color = '#1D6154';
+}
