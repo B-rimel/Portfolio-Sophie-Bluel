@@ -124,6 +124,9 @@ for (const category of categories) {
 let imgOk = false;
 let titleOk = false;
 let categoryOk = false;
+const boutonEnvoyer = document.getElementById('bouton-envoyer');
+boutonEnvoyer.disabled = true;
+console.log(boutonEnvoyer);
 
 const inputImage = document.getElementById('input-photo');
 inputImage.addEventListener('change', (event) => {
@@ -134,8 +137,9 @@ inputImage.addEventListener('change', (event) => {
     imgOk = true;
     let UrlImage = URL.createObjectURL(file);
     console.log(UrlImage);
+    console.log(imgOk);
   }
-  
+
   else {
     alert('Le fichier est trop gros');
     URL.revokeObjectURL(file);
@@ -145,24 +149,33 @@ inputImage.addEventListener('change', (event) => {
 
 });
 
-function changerBouton() {
-  const champTitre = document.getElementById('input-texte').value.trim();
-  const champCategorie = document.getElementById('categorie').value.trim();
 
-  if (champTitre !== '') {
+  const champTitre = document.getElementById('input-texte');
+  const contenuTitre = champTitre.value;
+  const champCategorie = document.getElementById('categorie');
+  const contenuCategorie = champCategorie.value;
+  champTitre.addEventListener('change', event => {
     titleOk = true;
     console.log(titleOk);
-  };
-
-  if (champCategorie !== '') {
+  });
+  champCategorie.addEventListener('change', event => { 
     categoryOk = true;
-  };
+    console.log(categoryOk);
+  });
 
-  const boutonEnvoyer = document.getElementById('bouton-envoyer');
+  if (imgOk === true || titleOk === true || categoryOk === true) {
+    console.log(imgOk);
+    console.log(titleOk);
+    console.log(categoryOk);
 
-  if (imgOk === true && titleOk === true && categoryOk === true) {
+    boutonEnvoyer.disabled = false;
     boutonEnvoyer.style.color = '#1D6154';
   }
-}
 
-changerBouton();
+
+let formulaireWork = document.getElementById('input-form');
+let dataFormulaire = new FormData(formulaireWork);
+dataFormulaire.append('image', UrlImage);
+dataFormulaire.append('title', champTitre.value);
+dataFormulaire.append('category', champCategorie);
+
