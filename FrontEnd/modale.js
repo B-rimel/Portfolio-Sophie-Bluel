@@ -51,41 +51,41 @@ modifierWorks.addEventListener('click', afficherModale);
 
 const grilleWorks = document.querySelector('#grille-works');
 
-function genererListeProjets(projets){
-for (const projet of projets) {
-  const figureGrille = document.createElement('figure');
-  figureGrille.dataset.id = projet.id;
-  grilleWorks.appendChild(figureGrille);
-  figureGrille.id = 'figure-grille';
+function genererListeProjets(projets) {
+  for (const projet of projets) {
+    const figureGrille = document.createElement('figure');
+    figureGrille.dataset.id = projet.id;
+    grilleWorks.appendChild(figureGrille);
+    figureGrille.id = 'figure-grille';
 
-  const imageGrille = document.createElement('img');
-  imageGrille.src = projet.imageUrl;
-  figureGrille.appendChild(imageGrille);
+    const imageGrille = document.createElement('img');
+    imageGrille.src = projet.imageUrl;
+    figureGrille.appendChild(imageGrille);
 
-  const texteGrille = document.createElement('figcaption');
-  texteGrille.innerText = 'éditer';
-  figureGrille.appendChild(texteGrille);
+    const texteGrille = document.createElement('figcaption');
+    texteGrille.innerText = 'éditer';
+    figureGrille.appendChild(texteGrille);
 
-  const divBoutons = document.createElement('div');
-  divBoutons.id = 'boutons-modale';
-  figureGrille.appendChild(divBoutons);
+    const divBoutons = document.createElement('div');
+    divBoutons.id = 'boutons-modale';
+    figureGrille.appendChild(divBoutons);
 
-  const boutonEditer = document.createElement('p');
-  boutonEditer.innerHTML = '<i class="fa-solid fa-arrows-up-down-left-right"></i>';
-  divBoutons.appendChild(boutonEditer);
-  boutonEditer.style.display = 'none';
-  
-  const boutonSupprimer = document.createElement('p');
-  boutonSupprimer.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-  divBoutons.appendChild(boutonSupprimer);
-
-  figureGrille.addEventListener('mouseover', event => {
-    boutonEditer.style.display = 'block';
-  });
-
-  figureGrille.addEventListener('mouseout', event => {
+    const boutonEditer = document.createElement('p');
+    boutonEditer.innerHTML = '<i class="fa-solid fa-arrows-up-down-left-right"></i>';
+    divBoutons.appendChild(boutonEditer);
     boutonEditer.style.display = 'none';
-  });
+
+    const boutonSupprimer = document.createElement('p');
+    boutonSupprimer.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+    divBoutons.appendChild(boutonSupprimer);
+
+    figureGrille.addEventListener('mouseover', event => {
+      boutonEditer.style.display = 'block';
+    });
+
+    figureGrille.addEventListener('mouseout', event => {
+      boutonEditer.style.display = 'none';
+    });
 
     boutonSupprimer.addEventListener('click', function (event) {
       const projetASupprimer = event.target.closest('#figure-grille');
@@ -109,8 +109,8 @@ for (const projet of projets) {
   };
 }
 
-function supprimerProjet(){
-  
+function supprimerProjet() {
+
 }
 genererListeProjets(projets);
 
@@ -121,25 +121,48 @@ for (const category of categories) {
   menu.appendChild(menuElement);
 }
 
+let imgOk = false;
+let titleOk = false;
+let categoryOk = false;
+
 const inputImage = document.getElementById('input-photo');
-const elementImage = inputImage.files[0];
-const tailleMaximum = 2048 * 2048;
-let imageValide = false;
+inputImage.addEventListener('change', (event) => {
+  let file = event.target.files[0];
+  const tailleMaximum = 2048 * 2048;
 
-if (elementImage && elementImage.size > tailleMaximum) {
-  alert('Le fichier est trop gros');
-} 
-else {
-  const imageValide = true;
-  UrlImage = elementImage.createObjectURL(elementImage);
-  console.log(UrlImage);
+  if (file && file.size <= tailleMaximum) {
+    imgOk = true;
+    let UrlImage = URL.createObjectURL(file);
+    console.log(UrlImage);
+  }
+  
+  else {
+    alert('Le fichier est trop gros');
+    URL.revokeObjectURL(file);
+    inputImage.value = '';
+  }
+
+
+});
+
+function changerBouton() {
+  const champTitre = document.getElementById('input-texte').value.trim();
+  const champCategorie = document.getElementById('categorie').value.trim();
+
+  if (champTitre !== '') {
+    titleOk = true;
+    console.log(titleOk);
+  };
+
+  if (champCategorie !== '') {
+    categoryOk = true;
+  };
+
+  const boutonEnvoyer = document.getElementById('bouton-envoyer');
+
+  if (imgOk === true && titleOk === true && categoryOk === true) {
+    boutonEnvoyer.style.color = '#1D6154';
+  }
 }
 
-const champTexte = document.getElementById('input-texte').value;
-const champCategorie = document.getElementById('categorie').value;
-
-if (imageValide === true && champTexte !== '' && champCategorie.trim() !== '') {
-  console.log('Ca marchera');
-  const boutonEnvoyer = document.getElementById('button-envoyer');
-  boutonEnvoyer.style.color = '#1D6154';
-}
+changerBouton();
