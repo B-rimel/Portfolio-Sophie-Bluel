@@ -127,7 +127,10 @@ let categoryOk = false;
 const boutonEnvoyer = document.getElementById('bouton-envoyer');
 boutonEnvoyer.disabled = true;
 console.log(boutonEnvoyer);
-
+function togglePreview() {
+  document.querySelector('.fenetre-ajout').classList.toggle('hidden');
+  document.querySelector('.preview').classList.toggle('hidden');
+}
 const inputImage = document.getElementById('input-photo');
 inputImage.addEventListener('change', (event) => {
   let file = event.target.files[0];
@@ -136,44 +139,54 @@ inputImage.addEventListener('change', (event) => {
   if (file && file.size <= tailleMaximum) {
     imgOk = true;
     let UrlImage = URL.createObjectURL(file);
-    console.log(UrlImage);
-    console.log(imgOk);
-  }
+    let img = document.getElementById('preview');
+    img.src = UrlImage;
+    img.onload = () => {
+      togglePreview();
+      URL.revokeObjectURL(file);
+    }
+    }
 
   else {
     alert('Le fichier est trop gros');
-    URL.revokeObjectURL(file);
     inputImage.value = '';
   }
 
 
 });
 
+function checkEntries() {
+  if(imgOk && titleOk && categoryOk){
+    boutonEnvoyer.disabled = false;
+    boutonEnvoyer.style.color = '#1D6154';
+  }
+  
+  else{
+    boutonEnvoyer.disabled = true;
+  }
+}
 
   const champTitre = document.getElementById('input-texte');
   const contenuTitre = champTitre.value;
   const champCategorie = document.getElementById('categorie');
   const contenuCategorie = champCategorie.value;
   champTitre.addEventListener('change', event => {
-    titleOk = true;
-    console.log(titleOk);
+    if(contenuTitre.length<3 || contenuTitre.length >50){
+      titleOk = true;
+    }
+    else{
+      titleOk = false;
+    }
+    checkEntries();
   });
-  champCategorie.addEventListener('change', event => { 
+
+  champCategorie.addEventListener('change', event => {
     categoryOk = true;
     console.log(categoryOk);
+    checkEntries();
   });
-
-  if (imgOk === true || titleOk === true || categoryOk === true) {
-    console.log(imgOk);
-    console.log(titleOk);
-    console.log(categoryOk);
-
-    boutonEnvoyer.disabled = false;
-    boutonEnvoyer.style.color = '#1D6154';
-  }
-
 
 const formulaireWork = document.getElementById('input-form');
 const dataFormulaire = new FormData(formulaireWork);
-dataFormulaire.append('image', UrlImage);
+dataFormulaire.append('image', file);
 

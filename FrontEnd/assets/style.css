@@ -467,17 +467,6 @@ footer nav ul {
 
 	}
 
-	& #fenetre-ajout {
-		margin: auto;
-		margin-top: 39px;
-		width: 60%;
-		background-color: #e8f1f7;
-		justify-content: center;
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		padding: 19px;
-
 		& i {
 			font-size: 58px;
 		}
@@ -503,9 +492,24 @@ footer nav ul {
 		border: none;
 	}
 
-}
 
 #input-modale {
 	width:60%;
 	margin: auto;
+}
+
+.fenetre-ajout {
+	margin: auto;
+	margin-top: 39px;
+	width: 60%;
+	background-color: #e8f1f7;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding: 19px;
+}
+
+.hidden {
+	display: none;
 }
