@@ -173,9 +173,7 @@ inputImage.addEventListener('change', (event) => {
   }
 
 
-let formulaireWork = document.getElementById('input-form');
-let dataFormulaire = new FormData(formulaireWork);
+const formulaireWork = document.getElementById('input-form');
+const dataFormulaire = new FormData(formulaireWork);
 dataFormulaire.append('image', UrlImage);
-dataFormulaire.append('title', champTitre.value);
-dataFormulaire.append('category', champCategorie);
 
