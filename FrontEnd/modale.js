@@ -145,7 +145,7 @@ inputImage.addEventListener('change', (event) => {
       togglePreview();
       URL.revokeObjectURL(file);
     }
-    }
+  }
 
   else {
     alert('Le fichier est trop gros');
@@ -156,37 +156,56 @@ inputImage.addEventListener('change', (event) => {
 });
 
 function checkEntries() {
-  if(imgOk && titleOk && categoryOk){
+  if (imgOk && titleOk && categoryOk) {
     boutonEnvoyer.disabled = false;
     boutonEnvoyer.style.color = '#1D6154';
   }
-  
-  else{
+
+  else {
     boutonEnvoyer.disabled = true;
   }
 }
 
-  const champTitre = document.getElementById('input-texte');
-  const contenuTitre = champTitre.value;
-  const champCategorie = document.getElementById('categorie');
-  const contenuCategorie = champCategorie.value;
-  champTitre.addEventListener('change', event => {
-    if(contenuTitre.length<3 || contenuTitre.length >50){
-      titleOk = true;
-    }
-    else{
-      titleOk = false;
-    }
-    checkEntries();
-  });
+const champTitre = document.getElementById('input-texte');
+const contenuTitre = champTitre.value;
+const champCategorie = document.getElementById('categorie');
+const contenuCategorie = champCategorie.value;
+champTitre.addEventListener('change', event => {
+  if (contenuTitre.length < 3 || contenuTitre.length > 50) {
+    titleOk = true;
+  }
+  else {
+    titleOk = false;
+  }
+  checkEntries();
+});
 
-  champCategorie.addEventListener('change', event => {
-    categoryOk = true;
-    console.log(categoryOk);
-    checkEntries();
-  });
+champCategorie.addEventListener('change', event => {
+  categoryOk = true;
+  console.log(categoryOk);
+  checkEntries();
+});
 
-const formulaireWork = document.getElementById('input-form');
-const dataFormulaire = new FormData(formulaireWork);
-dataFormulaire.append('image', file);
-
+const statutEnvoyer = document.getElementById('bouton-envoyer');
+if (statutEnvoyer.disabled = false) {
+  const formulaireWork = document.getElementById('input-form');
+  const dataFormulaire = new FormData(formulaireWork);
+  dataFormulaire.append('image', file);
+  console.log(dataFormulaire);
+  statutEnvoyer.addEventListener('click', event => {
+    fetch(`http://localhost:5678/api/works`, {
+      method: 'POST',
+      body: dataFormulaire,
+      headers: {'Authorization': `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'}
+    })
+    .then((response) => {
+      if (response.ok) {
+        alert('tout marche bien !');
+      }
+      else {
+        alert("Une erreur s'est produite lors de la suppression du projet");
+      }
+    })
+})
+}
