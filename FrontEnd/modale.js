@@ -124,6 +124,7 @@ for (const category of categories) {
 let imgOk = false;
 let titleOk = false;
 let categoryOk = false;
+let file = '';
 const boutonEnvoyer = document.getElementById('bouton-envoyer');
 boutonEnvoyer.disabled = true;
 console.log(boutonEnvoyer);
@@ -158,11 +159,7 @@ inputImage.addEventListener('change', (event) => {
 function checkEntries() {
   if (imgOk && titleOk && categoryOk) {
     boutonEnvoyer.disabled = false;
-    boutonEnvoyer.style.color = '#1D6154';
-  }
-
-  else {
-    boutonEnvoyer.disabled = true;
+    boutonEnvoyer.style.backgroundColor = '#1D6154';
   }
 }
 
@@ -187,25 +184,28 @@ champCategorie.addEventListener('change', event => {
 });
 
 const statutEnvoyer = document.getElementById('bouton-envoyer');
-if (statutEnvoyer.disabled = false) {
-  const formulaireWork = document.getElementById('input-form');
+
+const formulaireWork = document.getElementById('input-form');
+
+formulaireWork.addEventListener('submit', (event) => {
+  event.preventDefault();
+
   const dataFormulaire = new FormData(formulaireWork);
   dataFormulaire.append('image', file);
-  console.log(dataFormulaire);
-  statutEnvoyer.addEventListener('click', event => {
-    fetch(`http://localhost:5678/api/works`, {
-      method: 'POST',
-      body: dataFormulaire,
-      headers: {'Authorization': `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data'}
-    })
-    .then((response) => {
-      if (response.ok) {
-        alert('tout marche bien !');
-      }
-      else {
-        alert("Une erreur s'est produite lors de la suppression du projet");
-      }
-    })
-})
-}
+  
+  fetch(`http://localhost:5678/api/works`, {
+    method: 'POST',
+    body: dataFormulaire,
+    headers: {'Authorization': `Bearer ${token}`}
+  })
+  .then((response) => {
+    if (response.ok) {
+      console.log('Tout va bien');
+      formulaireWork.reset();
+    }
+    else {
+      console.log('erreur');
+      formulaireWork.reset();
+    }
+  });
+});
