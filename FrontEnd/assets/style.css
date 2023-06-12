@@ -364,14 +364,14 @@ footer nav ul {
 	padding: 20px;
 	background-color: white;
 	border-radius: 10px;
+}
 
-	& h1 {
-		font-family: 'Work Sans';
-		font-weight: 400;
-		font-size: 26px;
-		color: black;
-		justify-content: center;
-	}
+#modale-fenetre h1 {
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 26px;
+	color: black;
+	justify-content: center;
 }
 
 #barre-controle {
@@ -390,45 +390,48 @@ footer nav ul {
 	justify-items: center;
 	width: auto;
 	margin-top: 26px;
-
-	& img {
-		width: 78px;
-		height: 104px;
-	}
 }
 
+#grille-works img {
+	width: 78px;
+	height: 104px;
+}
+
+#figure-grille {
+	position: relative;
+}
 #boutons-modale {
 	display: flex;
 	position: absolute;
 	top: 6px;
 	right: 6px;
+}
 
-	& p {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: black;
-		border-radius: 2px;
-		height: 17px;
-		width: 17px;
-		margin-left: 5px;
-	}
+#boutons-modale p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	border-radius: 2px;
+	height: 17px;
+	width: 17px;
+	margin-left: 5px;
+}
 
-	& i {
-		height: 17px;
-		width: 17px;
-		color: white;
-	}
+#boutons-modale i {
+	height: 17px;
+	width: 17px;
+	color: white;
 }
 
 #controles-modale {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
 
-	& p {
-		color: #D65353;
-	}
+#controles-modale p {
+	color: #D65353;
 }
 
 .modale2 {
@@ -436,55 +439,53 @@ footer nav ul {
 	width: 80%;
 	justify-content: center;
 	font-family: 'Work Sans';
+}
 
-	& form {
-		width: 60%;
-		margin: auto;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		font-weight: 500;
-		text-align: start;
-	}
+.modale2 form {
+	width: 60%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-weight: 500;
+	text-align: start;
+}
 
-	& label {
-		font-family: 'Work Sans';
-		font-style: normal;
-		font-weight: 500;
-		font-size: 14px;
-		line-height: 16px;
-		margin-bottom: 10px;
-		margin-top: 10px;
-	}
+.modale2 label {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
 
-	& input,
-	select {
-		text-align: left;
-		width: 420px;
-		height: 50px;
-		box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+.modale2 input,
+.modale2 select {
+	text-align: left;
+	width: 420px;
+	height: 50px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
 
-	}
+.modale2 i {
+	font-size: 58px;
+}
 
-		& i {
-			font-size: 58px;
-		}
-
-		& input [type="input"] {
-			border: none;
-			border-radius: 18px;
-			width: 173px;
-			height: 36px;
-			font-family: 'Work Sans';
-			font-style: normal;
-			font-weight: 500;
-			font-size: 14px;
-			line-height: 16px;
-			text-align: center;
-			background-color: #a7a7a7;
-		}
-
-	}
+.modale2 input[type="input"] {
+	border: none;
+	border-radius: 18px;
+	width: 173px;
+	height: 36px;
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+	background-color: #a7a7a7;
+}
 
 
 #input-modale {
