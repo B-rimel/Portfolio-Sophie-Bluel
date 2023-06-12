@@ -3,6 +3,12 @@ let projets = await getWorksFromAPI.json();
 
 const getProjectsFromAPI = await fetch('http://localhost:5678/api/categories');
 let categories = await getProjectsFromAPI.json();
+const toutesCategories = {
+  id: 0,
+  name: 'Sélectionnez une catégorie',
+}
+categories.unshift(toutesCategories);
+console.log(categories);
 
 const token = sessionStorage.getItem('token');
 
@@ -114,12 +120,20 @@ function supprimerProjet() {
 }
 genererListeProjets(projets);
 
-for (const category of categories) {
-  const menuElement = document.createElement('option');
-  menuElement.textContent = category.name;
-  const menu = document.querySelector('select');
-  menu.appendChild(menuElement);
+const menu = document.querySelector('select');
+
+for (let i = 0; i < categories.length; i++) {
+  const category = categories[i];
+  
+  const option = document.createElement("option");
+  
+  option.value = [i];
+  
+  option.text = category.name;
+  
+  menu.add(option);
 }
+
 
 let imgOk = false;
 let titleOk = false;
@@ -183,16 +197,27 @@ champCategorie.addEventListener('change', event => {
   checkEntries();
 });
 
-const statutEnvoyer = document.getElementById('bouton-envoyer');
-
 const formulaireWork = document.getElementById('input-form');
 
 formulaireWork.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const dataFormulaire = new FormData(formulaireWork);
+  const inputFile = document.getElementById('input-photo');
+  const file = inputFile.files[0];
+
+  const inputTexte = document.getElementById('input-texte');
+  const contenuTitre = inputTexte.value;
+
+  const selectCategorie = document.getElementById('categorie');
+  const contenuCategorie = selectCategorie.value;
+
+  const dataFormulaire = new FormData();
   dataFormulaire.append('image', file);
-  
+  dataFormulaire.append('category', contenuCategorie);
+  dataFormulaire.append('title', contenuTitre);
+
+  console.log(dataFormulaire);
+
   fetch(`http://localhost:5678/api/works`, {
     method: 'POST',
     body: dataFormulaire,

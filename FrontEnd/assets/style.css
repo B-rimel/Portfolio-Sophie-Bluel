@@ -470,7 +470,7 @@ footer nav ul {
 			font-size: 58px;
 		}
 
-		& input {
+		& input [type="input"] {
 			border: none;
 			border-radius: 18px;
 			width: 173px;
