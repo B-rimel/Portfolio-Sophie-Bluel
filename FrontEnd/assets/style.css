@@ -258,6 +258,21 @@ li:hover {
 	margin-bottom: 1em;
 }
 
+#filtres {
+	display: flex;
+	margin-bottom: 50px;
+}
+
+#filtres button {
+	color: #1D6154;
+	background-color: white;
+	border: solid 1px #1D6154;
+}
+
+#filtres button:active {
+	color:white;
+	background-color:#1D6154;
+}
 .gallery {
 	width: 100%;
 	display: grid;
@@ -336,13 +351,13 @@ footer nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
+	margin-bottom: 30px;
   }
   
   #sectionProjet h2,
   #sectionProjet p {
     margin: 0;
 	margin-right: 30px;
-	margin-bottom: 92px;
   }
 
 #boutonModale {
