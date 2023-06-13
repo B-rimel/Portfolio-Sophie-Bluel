@@ -65,6 +65,9 @@ if (token) {
   const boutonHeader = document.createElement('button');
   boutonHeader.innerHTML = 'Publier les changements';
 
+  const navBar = document.getElementById('navBar');
+  navBar.style.paddingTop = '76px';
+
   sectionHeader.prepend(header);
   header.appendChild(texteHeader)
   header.appendChild(boutonHeader);
