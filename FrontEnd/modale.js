@@ -152,7 +152,7 @@ inputImage.addEventListener('change', (event) => {
   const tailleMaximum = 2048 * 2048;
 
   if (file && file.size <= tailleMaximum) {
-    imgOk = true;
+
     let UrlImage = URL.createObjectURL(file);
     let img = document.getElementById('preview');
     img.src = UrlImage;
@@ -160,11 +160,16 @@ inputImage.addEventListener('change', (event) => {
       togglePreview();
       URL.revokeObjectURL(file);
     }
+    imgOk = true;    
+    checkEntries();
+    console.log('L\'image est valide')
   }
 
   else {
     alert('Le fichier est trop gros');
     inputImage.value = '';
+    imgOk = false;
+    checkEntries();
   }
 
 
@@ -175,20 +180,28 @@ function checkEntries() {
     boutonEnvoyer.disabled = false;
     boutonEnvoyer.style.backgroundColor = '#1D6154';
   }
+
+  else{
+    boutonEnvoyer.disabled = true;
+    boutonEnvoyer.style.backgroundColor= '#A7A7A7';
+  }
 }
 
 const champTitre = document.getElementById('input-texte');
-const contenuTitre = champTitre.value;
+const contenuTitre = document.getElementById('input-texte').value;
 const champCategorie = document.getElementById('categorie');
 const contenuCategorie = champCategorie.value;
 champTitre.addEventListener('change', event => {
-  if (contenuTitre.length < 3 || contenuTitre.length > 50) {
-    titleOk = true;
-  }
-  else {
+  if (event.target.value.length < 3 || event.target.value.length > 50) {
     titleOk = false;
   }
+  else {
+    titleOk = true;
+  }
   checkEntries();
+  console.log(contenuTitre.length);
+  console.log(champTitre.value);
+  console.log(titleOk);
 });
 
 champCategorie.addEventListener('change', event => {

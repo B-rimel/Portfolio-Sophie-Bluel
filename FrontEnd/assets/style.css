@@ -462,6 +462,11 @@ footer nav ul {
 	color: #D65353;
 }
 
+hr {
+	width: 100%;
+	color: #b3b3b3;
+	size: 1px;
+}
 .modale2 {
 	display: none;
 	width: 80%;

@@ -73,7 +73,7 @@ if (token) {
   header.appendChild(boutonHeader);
 
   const sectionIntro = document.querySelector('#sectionIntroduction');
-  const modifierPhoto = document.createElement('p');
+  const modifierPhoto = document.createElement('figcaption');
   modifierPhoto.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Modifier';
   modifierPhoto.id = 'boutonModif';
   sectionIntro.appendChild(modifierPhoto);
