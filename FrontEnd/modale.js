@@ -142,7 +142,6 @@ let categoryOk = false;
 let file = '';
 const boutonEnvoyer = document.getElementById('bouton-envoyer');
 boutonEnvoyer.disabled = true;
-console.log(boutonEnvoyer);
 function togglePreview() {
   document.querySelector('.fenetre-ajout').classList.toggle('hidden');
   document.querySelector('.preview').classList.toggle('hidden');
@@ -214,7 +213,7 @@ champCategorie.addEventListener('change', event => {
 const formulaireWork = document.getElementById('input-form');
 
 formulaireWork.addEventListener('submit', (event) => {
-  event.target.preventDefault();
+  event.preventDefault();
 
   const inputFile = document.getElementById('input-photo');
   const file = inputFile.files[0];
@@ -250,10 +249,8 @@ formulaireWork.addEventListener('submit', (event) => {
       console.log('erreur');
       formulaireWork.reset();
     }
+
+    return false;
   })
-  .catch(error => {
-    console.log('Une erreur s\'est produite :', error);
-    formulaireWork.reset();
-  });
 });
 
