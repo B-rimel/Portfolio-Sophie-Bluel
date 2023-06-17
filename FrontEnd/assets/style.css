@@ -407,16 +407,20 @@ footer nav ul {
 	justify-content: space-between;
 }
 
+.wrapper-galerie {
+	width: 80%;
+	margin: auto;
+}
+
 #grille-works {
 	position: relative;
-	width: 60%;
 	align-items: center;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(5, 1fr);
 	grid-row-gap: 5px;
 	grid-column-gap: 7px;
 	justify-items: center;
-	width: auto;
+	margin: auto;
 	margin-top: 26px;
 }
 
@@ -475,7 +479,6 @@ hr {
 }
 
 .modale2 form {
-	width: 60%;
 	margin: auto;
 	display: flex;
 	flex-direction: column;
@@ -494,6 +497,18 @@ hr {
 	margin-top: 10px;
 }
 
+label[for="input-photo"] {
+	border-radius: 50px;
+    color: #306685;
+    background-color: #CBD6DB;
+    padding: 10px 33px;
+	font-family: 'Work Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+}
 .modale2 input,
 .modale2 select {
 	text-align: left;
@@ -522,7 +537,6 @@ hr {
 
 
 #input-modale {
-	width:60%;
 	margin: auto;
 }
 

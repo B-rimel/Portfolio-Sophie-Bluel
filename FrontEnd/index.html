@@ -31,19 +31,23 @@
   <main>
 
     <aside id="modale-wrapper" class="modale1">
+
       <div id="modale-fenetre">
         <div id="barre-controle">
           <p id="bouton-fermer"><i class="fa-solid fa-x"></i></p>
         </div>
         <h1>Galerie photo</h1>
-        <div id="grille-works">
-        </div>
-        <hr>
-        <div id="controles-modale">
-          <button id="bouton-suivant">Ajouter une photo</button>
-          <p>Supprimer la galerie</p>
+        <div class="wrapper-galerie">
+          <div id="grille-works">
+          </div>
+          <hr>
+          <div id="controles-modale">
+            <button id="bouton-suivant">Ajouter une photo</button>
+            <p>Supprimer la galerie</p>
+          </div>
         </div>
       </div>
+
     </aside>
 
     <aside id="modale-wrapper" class="modale2">
@@ -53,25 +57,26 @@
           <p id="bouton-fermer"><i class="fa-solid fa-x"></i></p>
         </div>
         <h1>Ajout photo</h1>
-        <div class="preview hidden"><img src="" alt="" id="preview"></div>
-        <div class="fenetre-ajout">
-          <i class="fa-solid fa-image"></i>
-            <input class="hidden" type="file" id="input-photo" accept="image/jpeg, image/png" name='image'/>
+        <div class="wrapper-galerie">
+          <div class="preview hidden"><img src="" alt="" id="preview"></div>
+          <div class="fenetre-ajout">
+            <img src="assets/icons/icone-preview.png" alt="">
+            <input class="hidden" type="file" id="input-photo" accept="image/jpeg, image/png" name='image' />
             <label for="input-photo">+ Ajouter Photo</label>
 
-          <p>jpg, png : 4mo max</p>
+            <p>jpg, png : 4mo max</p>
+          </div>
+          <div id="input-modale">
+            <form id='input-form' action="#" onsubmit="jsFunction();return false">
+              <label for="title">Titre</label>
+              <input type="text" id="input-texte" name='title' />
+              <label for="select">Catégorie</label>
+              <select name="category" id="categorie"></select>
+              <hr>
+              <input id="bouton-envoyer" type="submit" value="Envoyer">
+            </form>
+          </div>
         </div>
-        <div id="input-modale">
-          <form id='input-form' action="#" onsubmit="jsFunction();return false">
-          <label for="title">Titre</label>
-          <input type="text" id="input-texte" name='title'/>
-          <label for="select">Catégorie</label>
-          <select name="category" id="categorie"></select>
-          <hr>
-          <input id="bouton-envoyer" type="submit" value="Envoyer">
-        </form>
-        </div>
-
       </div>
     </aside>
 
@@ -95,13 +100,15 @@
           budget.
         </p>
         <p>
-          En cas de besoin, une équipe pluridisciplinaire peut-être constituée 
+          En cas de besoin, une équipe pluridisciplinaire peut-être constituée
           : architecte DPLG, décorateur(trice)
         </p>
       </article>
     </section>
     <section id="portfolio">
-      <div id="sectionProjet"><h2 id="sectionProjet">Mes Projets</h2></div>
+      <div id="sectionProjet">
+        <h2 id="sectionProjet">Mes Projets</h2>
+      </div>
 
       <div id="filtres"></div>
       <div class="gallery"></div>
