@@ -94,6 +94,7 @@ function genererListeProjets(projets) {
     });
 
     boutonSupprimer.addEventListener('click', function (event) {
+      event.preventDefault();
       const projetASupprimer = event.target.closest('#figure-grille');
       const projetId = projetASupprimer.dataset.id;
       fetch(`http://localhost:5678/api/works/${projetId}`, {
@@ -213,7 +214,7 @@ champCategorie.addEventListener('change', event => {
 const formulaireWork = document.getElementById('input-form');
 
 formulaireWork.addEventListener('submit', (event) => {
-  event.preventDefault();
+  event.target.preventDefault();
 
   const inputFile = document.getElementById('input-photo');
   const file = inputFile.files[0];
@@ -236,14 +237,23 @@ formulaireWork.addEventListener('submit', (event) => {
     body: dataFormulaire,
     headers: {'Authorization': `Bearer ${token}`}
   })
-  .then((response) => {
+  .then(response => {
     if (response.ok) {
+      const fenetreModale1 = document.querySelector('.modale1');
+      const fenetreModale2 = document.querySelector('.modale2');
+      fenetreModale2.style.display = 'none';      
+      fenetreModale1.style.display = 'flex';
+
       console.log('Tout va bien');
       formulaireWork.reset();
-    }
-    else {
+    } else {
       console.log('erreur');
       formulaireWork.reset();
     }
+  })
+  .catch(error => {
+    console.log('Une erreur s\'est produite :', error);
+    formulaireWork.reset();
   });
 });
+
