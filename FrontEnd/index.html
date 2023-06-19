@@ -34,10 +34,12 @@
 
       <div id="modale-fenetre">
         <div id="barre-controle">
+          <p id="bouton-fermer"><i class="fa-solid fa-arrow"></i></p>
           <p id="bouton-fermer"><i class="fa-solid fa-x"></i></p>
         </div>
-        <h1>Galerie photo</h1>
+
         <div class="wrapper-galerie">
+          <h1>Galerie photo</h1>
           <div id="grille-works">
           </div>
           <hr>
@@ -56,8 +58,8 @@
           <p id="bouton-precedent"><i class="fa-solid fa-arrow-left"></i></p>
           <p id="bouton-fermer"><i class="fa-solid fa-x"></i></p>
         </div>
-        <h1>Ajout photo</h1>
         <div class="wrapper-galerie">
+          <h1>Ajout photo</h1>
           <div class="preview hidden"><img src="" alt="" id="preview"></div>
           <div class="fenetre-ajout">
             <img src="assets/icons/icone-preview.png" alt="">
@@ -67,7 +69,7 @@
             <p>jpg, png : 4mo max</p>
           </div>
           <div id="input-modale">
-            <form id='input-form' action="#">
+            <form id='input-form' action="#" onsubmit="return false;">
               <label for="title">Titre</label>
               <input type="text" id="input-texte" name='title' />
               <label for="select">Catégorie</label>
@@ -85,6 +87,7 @@
     <section id="introduction">
       <figure id="sectionIntroduction">
         <img src="./assets/images/sophie-bluel.png" alt="" />
+        <figcaption id="boutonModif"><i class="fa-solid fa-pen-to-square"></i>Modifier</figcaption>
       </figure>
       <article>
         <h2>Designer d'espace</h2>

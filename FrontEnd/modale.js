@@ -1,22 +1,12 @@
-const getWorksFromAPI = await fetch('http://localhost:5678/api/works');
-let projets = await getWorksFromAPI.json();
+import {token, projets, categories} from './index.js';
 
-const getProjectsFromAPI = await fetch('http://localhost:5678/api/categories');
-let categories = await getProjectsFromAPI.json();
+categories.splice(0, 1);
 const toutesCategories = {
   id: 0,
-  name: 'Sélectionnez une catégorie',
+  name: '',
 }
 categories.unshift(toutesCategories);
 console.log(categories);
-
-const token = sessionStorage.getItem('token');
-
-
-const sectionWorks = document.querySelector('#sectionProjet');
-const modifierWorks = document.createElement('p');
-modifierWorks.innerHTML = '<a href="#modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>';
-sectionWorks.appendChild(modifierWorks);
 
 const boutonModale2 = document.querySelector('#bouton-suivant');
 boutonModale2.addEventListener('click', event => deuxiemeModale());
@@ -52,7 +42,7 @@ function deuxiemeModale() {
   fenetreModale2.style.display = 'flex';
 }
 
-
+const modifierWorks = document.querySelector('#ouvrir-modale');
 modifierWorks.addEventListener('click', afficherModale);
 
 const grilleWorks = document.querySelector('#grille-works');

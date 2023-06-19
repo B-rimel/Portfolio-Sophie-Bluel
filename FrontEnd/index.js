@@ -54,6 +54,7 @@ if (!token) {
   }
 }
 
+const modifierWorks = '';
 // Ces lignes affichent un bouton modifier dans la section introduction si l'utilisateur est connecté
 if (token) {
   const sectionHeader = document.querySelector('header');
@@ -72,11 +73,11 @@ if (token) {
   header.appendChild(texteHeader)
   header.appendChild(boutonHeader);
 
-  const sectionIntro = document.querySelector('#sectionIntroduction');
-  const modifierPhoto = document.createElement('figcaption');
-  modifierPhoto.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Modifier';
-  modifierPhoto.id = 'boutonModif';
-  sectionIntro.appendChild(modifierPhoto);
+  const sectionWorks = document.querySelector('#sectionProjet');
+  const modifierWorks = document.createElement('p');
+  modifierWorks.id = 'ouvrir-modale';
+  modifierWorks.innerHTML = '<a href="#modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>';
+  sectionWorks.appendChild(modifierWorks);
 }
 
 // Ces lignes changent le texte "login" en "logout" si l'utilisateur est connecté
@@ -88,4 +89,4 @@ else {
   boutonLogin.innerText = 'login';
 }
 
-export {token, projets, categories, genererListeProjets};
+export {token, projets, categories, genererListeProjets, modifierWorks};
