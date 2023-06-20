@@ -232,17 +232,19 @@ li:hover {
 	display: flex;
 	align-items: center;
 }
-
-#introduction figure {
-	flex: 1
+#boutonModif {
+	margin-left: 10%; margin-top: 15px;
 }
-
 #introduction img {
 	display: block;
 	margin: auto;
 	width: 80%;
 }
 
+#wrapper-photo {
+	flex: 1;
+	margin: auto;
+}
 #introduction article {
 	flex: 1
 }
