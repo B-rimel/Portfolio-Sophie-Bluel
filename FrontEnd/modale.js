@@ -237,8 +237,7 @@ formulaireWork.addEventListener('submit', (event) => {
   })
   .then(response => {
     if (response.ok) {
-      fenetreModale2.style.display = 'none';      
-      fenetreModale1.style.display = 'flex';
+      retourModaleUn();
 
       console.log('Tout va bien');
       formulaireWork.reset();
@@ -246,8 +245,6 @@ formulaireWork.addEventListener('submit', (event) => {
       console.log('erreur');
       formulaireWork.reset();
     }
-
-    return false;
   })
 });
 
