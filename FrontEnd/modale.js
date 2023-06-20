@@ -11,15 +11,24 @@ console.log(categories);
 const boutonModale2 = document.querySelector('#bouton-suivant');
 boutonModale2.addEventListener('click', event => deuxiemeModale());
 
+const fenetreModale1 = document.querySelector('.modale1');
+const fenetreModale2 = document.querySelector('.modale2');
+const boutonFermer = document.querySelector('#bouton-fermer');
+const boutonPrecedent = document.querySelector('#bouton-precedent');
 
+function retourModaleUn() {
+  fenetreModale1.style.display = 'flex';
+  fenetreModale2.style.display = 'none';
+
+}
+
+boutonPrecedent.addEventListener('click', retourModaleUn);
 
 function afficherModale() {
-  const fenetreModale1 = document.querySelector('.modale1');
   fenetreModale1.style.display = 'flex';
 }
 
 function fermerModale() {
-  const boutonFermer = document.querySelector('#bouton-fermer');
   const modaleWrapper = document.querySelector('#modale-wrapper');
 
   boutonFermer.addEventListener('click', event => {
@@ -36,7 +45,6 @@ function fermerModale() {
 fermerModale();
 
 function deuxiemeModale() {
-  const fenetreModale1 = document.querySelector('.modale1');
   const fenetreModale2 = document.querySelector('.modale2');
   fenetreModale1.style.display = 'none';
   fenetreModale2.style.display = 'flex';
@@ -96,6 +104,7 @@ function genererListeProjets(projets) {
             projetASupprimer.remove();
             const index = projets.findIndex(projet => projet.id == projetId);
             projets.splice(index, 1);
+            grilleWorks.innerHTML = '';
             genererListeProjets(projets);
           }
           else {
@@ -228,8 +237,6 @@ formulaireWork.addEventListener('submit', (event) => {
   })
   .then(response => {
     if (response.ok) {
-      const fenetreModale1 = document.querySelector('.modale1');
-      const fenetreModale2 = document.querySelector('.modale2');
       fenetreModale2.style.display = 'none';      
       fenetreModale1.style.display = 'flex';
 

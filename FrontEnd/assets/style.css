@@ -165,11 +165,13 @@ header {
 	color: white;
 	width: 100%;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	font-family: 'Work Sans';
 	font-size: 14px;
 	margin: auto;
-	position: absolute; top: 0; left: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 #headerLogin button {
@@ -270,9 +272,10 @@ li:hover {
 }
 
 #filtres button:active {
-	color:white;
-	background-color:#1D6154;
+	color: white;
+	background-color: #1D6154;
 }
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -330,15 +333,28 @@ li:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-button, [type="submit"] {
+button,
+[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
 	margin: 2em auto;
+	margin-top: 0;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px;
+}
+
+#headerLogin button {
+	margin: 10px;
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+	padding: 11px 23px;
 }
 
 footer nav ul {
@@ -348,17 +364,17 @@ footer nav ul {
 }
 
 #sectionProjet {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	margin-bottom: 30px;
-  }
-  
-  #sectionProjet h2,
-  #sectionProjet p {
-    margin: 0;
+}
+
+#sectionProjet h2,
+#sectionProjet p {
+	margin: 0;
 	margin-right: 30px;
-  }
+}
 
 #boutonModale {
 	margin-left: 20px;
@@ -407,8 +423,13 @@ footer nav ul {
 	justify-content: space-between;
 }
 
-#barre-controle i {
-	height: 12px;
+#barre-controle button {
+	background: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	height: auto;
 }
 
 #barre-controle {
@@ -417,13 +438,16 @@ footer nav ul {
 
 #bouton-fermer {
 	position: absolute;
-	top: 0; right: 0;
+	top: 0;
+	right: 0;
 }
 
-#bouton-precedent i{
+#bouton-precedent i {
 	position: absolute;
-	top: 0; left: 35px;
-	width: 21px; height: 14px;
+	top: 0;
+	left: 35px;
+	width: 21px;
+	height: 14px;
 }
 
 .wrapper-galerie {
@@ -452,6 +476,7 @@ footer nav ul {
 #figure-grille {
 	position: relative;
 }
+
 #boutons-modale {
 	display: flex;
 	position: absolute;
@@ -493,6 +518,7 @@ hr {
 	margin-top: 47px;
 	margin-bottom: 32px;
 }
+
 .modale2 {
 	display: none;
 	width: 80%;
@@ -521,9 +547,9 @@ hr {
 
 label[for="input-photo"] {
 	border-radius: 50px;
-    color: #306685;
-    background-color: #CBD6DB;
-    padding: 10px 33px;
+	color: #306685;
+	background-color: #CBD6DB;
+	padding: 10px 33px;
 	font-family: 'Work Sans';
 	font-style: normal;
 	font-weight: 500;
@@ -547,6 +573,7 @@ label[for="input-photo"] {
 	object-fit: contain;
 
 }
+
 .modale2 input,
 .modale2 select {
 	text-align: left;
