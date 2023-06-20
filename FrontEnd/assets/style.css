@@ -232,9 +232,11 @@ li:hover {
 	display: flex;
 	align-items: center;
 }
+
 #boutonModif {
-	margin-left: 10%; margin-top: 15px;
+	margin-left: 10%;
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -245,6 +247,7 @@ li:hover {
 	flex: 1;
 	margin: auto;
 }
+
 #introduction article {
 	flex: 1
 }
@@ -262,21 +265,8 @@ li:hover {
 	margin-bottom: 1em;
 }
 
-#filtres {
-	display: flex;
-	margin-bottom: 50px;
-}
 
-#filtres button {
-	color: #1D6154;
-	background-color: white;
-	border: solid 1px #1D6154;
-}
 
-#filtres button:active {
-	color: white;
-	background-color: #1D6154;
-}
 
 .gallery {
 	width: 100%;
@@ -316,6 +306,16 @@ li:hover {
 	flex-direction: column;
 }
 
+#login form p {
+	font-family: 'Work Sans';
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 16px;
+	text-decoration-line: underline;
+	color: #3D3D3D;
+	text-align: center;
+}
+
 #contact input,
 #login input {
 	height: 50px;
@@ -341,8 +341,7 @@ button,
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
-	margin: 2em auto;
-	margin-top: 0;
+	margin: auto; margin-bottom: 32px;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px;
@@ -385,6 +384,50 @@ footer nav ul {
 	font-weight: 400;
 	color: black;
 }
+
+#filtres {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 50px;
+	width: auto;
+	margin: auto;
+}
+
+#filtres button {
+	color: #1D6154;
+	background-color: white;
+	border: solid 1px #1D6154;
+	width: auto;
+	margin-right: 10px; margin-left: 0; margin-bottom: 51px;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19px;
+
+}
+
+[data-id="Tous"] {
+	padding: 10px 30px;
+}
+
+[data-id="Objets"] {
+	padding: 10px 22px;
+}
+
+[data-id="Appartements"] {
+	padding: 10px 15px;
+}
+
+[data-id="Hôtels & restaurants"] {
+	padding: 10px 11px;
+}
+
+#filtres button:active {
+	color: white;
+	background-color: #1D6154;
+}
+
 
 #modale-wrapper {
 	text-align: center;

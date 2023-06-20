@@ -198,9 +198,6 @@ champTitre.addEventListener('change', event => {
     titleOk = true;
   }
   checkEntries();
-  console.log(contenuTitre.length);
-  console.log(champTitre.value);
-  console.log(titleOk);
 });
 
 champCategorie.addEventListener('change', event => {
