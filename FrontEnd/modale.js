@@ -13,8 +13,8 @@ boutonModale2.addEventListener('click', event => deuxiemeModale());
 
 const fenetreModale1 = document.querySelector('.modale1');
 const fenetreModale2 = document.querySelector('.modale2');
-const boutonFermer = document.querySelector('#bouton-fermer');
-const boutonPrecedent = document.querySelector('#bouton-precedent');
+const boutonsFermer = document.querySelectorAll('.bouton-fermer');
+const boutonPrecedent = document.querySelector('.bouton-precedent');
 
 function retourModaleUn() {
   fenetreModale1.style.display = 'flex';
@@ -31,9 +31,11 @@ function afficherModale() {
 function fermerModale() {
   const modaleWrapper = document.querySelector('#modale-wrapper');
 
-  boutonFermer.addEventListener('click', event => {
-    modaleWrapper.style.display = 'none';
-  });
+  for (const bouton of boutonsFermer) {
+    bouton.addEventListener('click', event => {
+      modaleWrapper.style.display = 'none';
+    });
+  }
 
   modaleWrapper.addEventListener('click', event => {
     if (event.target === modaleWrapper) {

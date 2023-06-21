@@ -481,13 +481,13 @@ footer nav ul {
 	position: relative;
 }
 
-#bouton-fermer {
+.bouton-fermer {
 	position: absolute;
 	top: 0;
 	right: 0;
 }
 
-#bouton-precedent i {
+.bouton-precedent i {
 	position: absolute;
 	top: 0;
 	left: 35px;
