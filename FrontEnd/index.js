@@ -43,7 +43,7 @@ if (!token) {
   for (const category of categories) {
     const bouton = document.createElement('button');
     bouton.textContent = category.name;
-    bouton.dataset.id = category.name;
+    bouton.dataset.id = category.id;
 
     const boutonFiltre = document.querySelector("#filtres");
     boutonFiltre.appendChild(bouton);

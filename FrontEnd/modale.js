@@ -189,13 +189,17 @@ function checkEntries() {
 const champTitre = document.getElementById('input-texte');
 const contenuTitre = document.getElementById('input-texte').value;
 const champCategorie = document.getElementById('categorie');
+const containerErreur = document.getElementById('container-erreur');
 const contenuCategorie = champCategorie.value;
 champTitre.addEventListener('change', event => {
   if (event.target.value.length < 3 || event.target.value.length > 50) {
     titleOk = false;
+    containerErreur.innerHTML = ('Votre titre n\'est pas valide');
+    containerErreur.style.color = 'red';
   }
   else {
     titleOk = true;
+    containerErreur.innerText = '';
   }
   checkEntries();
 });

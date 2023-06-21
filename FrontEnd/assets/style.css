@@ -407,19 +407,19 @@ footer nav ul {
 
 }
 
-[data-id="Tous"] {
+[data-id="0"] {
 	padding: 10px 30px;
 }
 
-[data-id="Objets"] {
+[data-id="1"] {
 	padding: 10px 22px;
 }
 
-[data-id="Appartements"] {
+[data-id="2"] {
 	padding: 10px 15px;
 }
 
-[data-id="Hôtels & restaurants"] {
+[data-id="3"] {
 	padding: 10px 11px;
 }
 
