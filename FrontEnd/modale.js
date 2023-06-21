@@ -1,4 +1,4 @@
-import {token, projets, categories} from './index.js';
+import {token, projets, categories, genererListeProjets} from './index.js';
 
 categories.splice(0, 1);
 const toutesCategories = {
@@ -55,7 +55,7 @@ modifierWorks.addEventListener('click', afficherModale);
 
 const grilleWorks = document.querySelector('#grille-works');
 
-function genererListeProjets(projets) {
+function genererListeModale(projets) {
   for (const projet of projets) {
     const figureGrille = document.createElement('figure');
     figureGrille.dataset.id = projet.id;
@@ -105,6 +105,7 @@ function genererListeProjets(projets) {
             const index = projets.findIndex(projet => projet.id == projetId);
             projets.splice(index, 1);
             grilleWorks.innerHTML = '';
+            genererListeModale(projets);
             genererListeProjets(projets);
           }
           else {
@@ -118,7 +119,7 @@ function genererListeProjets(projets) {
 function supprimerProjet() {
 
 }
-genererListeProjets(projets);
+genererListeModale(projets);
 
 const menu = document.querySelector('select');
 
@@ -238,14 +239,18 @@ formulaireWork.addEventListener('submit', (event) => {
   })
   .then(response => {
     if (response.ok) {
-      retourModaleUn();
-
-      console.log('Tout va bien');
-      formulaireWork.reset();
+      return response.json();
     } else {
       console.log('erreur');
       formulaireWork.reset();
     }
+  }).then(projet => {
+    grilleWorks.innerHTML = '';
+    projets.push(projet);
+    retourModaleUn();
+    genererListeModale(projets);
+    genererListeProjets(projets);
+    formulaireWork.reset();
   })
 });
 
