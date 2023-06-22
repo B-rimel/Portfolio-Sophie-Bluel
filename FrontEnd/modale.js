@@ -30,7 +30,7 @@ function afficherModale() {
 
 function fermerModale() {
   const modaleWrapper = document.querySelector('#modale-wrapper');
-
+// Le code suivant assigne la fermeture de la fenêtre à tout les boutons fermer
   for (const bouton of boutonsFermer) {
     bouton.addEventListener('click', event => {
       modaleWrapper.style.display = 'none';
@@ -46,6 +46,7 @@ function fermerModale() {
 
 fermerModale();
 
+//Cette fonction affiche la deuxième modale et ferme la première
 function deuxiemeModale() {
   const fenetreModale2 = document.querySelector('.modale2');
   fenetreModale1.style.display = 'none';
@@ -57,6 +58,7 @@ modifierWorks.addEventListener('click', afficherModale);
 
 const grilleWorks = document.querySelector('#grille-works');
 
+// Cette fonction rafraichis la liste des projets dans la première modale
 function genererListeModale(projets) {
   for (const projet of projets) {
     const figureGrille = document.createElement('figure');
@@ -93,8 +95,9 @@ function genererListeModale(projets) {
       boutonEditer.style.display = 'none';
     });
 
+    // Cette fonction gère la suppression des projets dans la première modale
     boutonSupprimer.addEventListener('click', function (event) {
-      event.preventDefault();
+      event.preventDefault(); //Empêche le rafraichissement de la page
       const projetASupprimer = event.target.closest('#figure-grille');
       const projetId = projetASupprimer.dataset.id;
       fetch(`http://localhost:5678/api/works/${projetId}`, {
@@ -104,8 +107,8 @@ function genererListeModale(projets) {
         .then((response) => {
           if (response.ok) {
             projetASupprimer.remove();
-            const index = projets.findIndex(projet => projet.id == projetId);
-            projets.splice(index, 1);
+            const index = projets.findIndex(projet => projet.id == projetId); //Récupère le projet qui viens d'être supprimé...
+            projets.splice(index, 1); //...Puis le supprime de la page principale
             grilleWorks.innerHTML = '';
             genererListeModale(projets);
             genererListeProjets(projets);
@@ -125,16 +128,17 @@ genererListeModale(projets);
 
 const menu = document.querySelector('select');
 
+//Cette boucle récupère les différentes catégories, et les assigne à une option dans le menu de sélection de catégories
 for (let i = 0; i < categories.length; i++) {
-  const category = categories[i];
+  const category = categories[i]; //récupération de la catégorie
   
   const option = document.createElement("option");
   
-  option.value = [i];
+  option.value = [i]; //Assigne la valeur de la catégorie à son ID dans l'array
   
-  option.text = category.name;
+  option.text = category.name; //Assigne le nom de la catégorie à son nom dans l'array
   
-  menu.add(option);
+  menu.add(option); //Ajour du tout dans le menu de sélection
 }
 
 
@@ -158,7 +162,7 @@ inputImage.addEventListener('change', (event) => {
     let UrlImage = URL.createObjectURL(file);
     let img = document.getElementById('preview');
     img.src = UrlImage;
-    img.onload = () => {
+    img.onload = () => { //Quand l'image est chargée dans le navigateur, alors on met la preview à la place de l'input et on retire l'URL temporaire
       togglePreview();
       URL.revokeObjectURL(file);
     }
@@ -177,7 +181,7 @@ inputImage.addEventListener('change', (event) => {
 
 });
 
-function checkEntries() {
+function checkEntries() { //Cette fonction vérifie la validité des 3 paramètres. Si les 3 sont valides, le bouton de soumission est activé.
   if (imgOk && titleOk && categoryOk) {
     boutonEnvoyer.disabled = false;
     boutonEnvoyer.style.backgroundColor = '#1D6154';
@@ -243,7 +247,7 @@ formulaireWork.addEventListener('submit', (event) => {
     if (response.ok) {
       return response.json();
     } else {
-      console.log('erreur');
+      alert('Une erreur s\'est produite lors de la soumission de votre projet');
       formulaireWork.reset();
     }
   }).then(projet => {
@@ -255,4 +259,3 @@ formulaireWork.addEventListener('submit', (event) => {
     formulaireWork.reset();
   })
 });
-
