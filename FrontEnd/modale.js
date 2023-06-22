@@ -223,7 +223,7 @@ formulaireWork.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const inputFile = document.getElementById('input-photo');
-  const file = inputFile.files[0];
+  const file = inputFile.files[0]; //Récupération de l'image uploadée
 
   const inputTexte = document.getElementById('input-texte');
   const contenuTitre = inputTexte.value;
