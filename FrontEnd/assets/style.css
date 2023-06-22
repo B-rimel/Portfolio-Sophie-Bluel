@@ -429,7 +429,7 @@ footer nav ul {
 }
 
 
-#modale-wrapper {
+.modale-wrapper {
 	text-align: center;
 	display: flex;
 	align-items: center;
@@ -566,7 +566,6 @@ hr {
 
 .modale2 {
 	display: none;
-	width: 80%;
 	justify-content: center;
 	font-family: 'Work Sans';
 }

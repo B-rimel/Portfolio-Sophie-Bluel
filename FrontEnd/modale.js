@@ -29,21 +29,25 @@ function afficherModale() {
 }
 
 function fermerModale() {
-  const modaleWrapper = document.querySelector('#modale-wrapper');
-// Le code suivant assigne la fermeture de la fenêtre à tout les boutons fermer
-  for (const bouton of boutonsFermer) {
-    bouton.addEventListener('click', event => {
-      modaleWrapper.style.display = 'none';
+  const modaleWrappers = document.querySelectorAll('.modale-wrapper');
+
+  for (const modaleWrapper of modaleWrappers) {
+    const boutonsFermer = modaleWrapper.querySelectorAll('.bouton-fermer');
+    for (const bouton of boutonsFermer) {
+      bouton.addEventListener('click', event => {
+        modaleWrapper.style.display = 'none';
+      });
+    }
+
+    modaleWrapper.addEventListener('click', event => {
+      if (event.target === modaleWrapper) {
+        modaleWrapper.style.display = 'none';
+      }
     });
   }
-
-  modaleWrapper.addEventListener('click', event => {
-    if (event.target === modaleWrapper) {
-      modaleWrapper.style.display = 'none';
-    }
-  });
 }
 
+// Appel de la fonction pour ajouter les écouteurs d'événements
 fermerModale();
 
 //Cette fonction affiche la deuxième modale et ferme la première
