@@ -62,7 +62,6 @@ if (token) {
   const header = document.createElement('div');
   header.id = 'headerLogin';
   const texteHeader = document.createElement('p');
-  texteHeader.id = 'boutonModif';
   texteHeader.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>Mode édition';
   const boutonHeader = document.createElement('button');
   boutonHeader.innerHTML = 'Publier les changements';
