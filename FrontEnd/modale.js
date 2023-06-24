@@ -261,5 +261,10 @@ formulaireWork.addEventListener('submit', (event) => {
     genererListeModale(projets);
     genererListeProjets(projets);
     formulaireWork.reset();
+    togglePreview();
+    imgOk = false;
+    titleOk = false;
+    categoryOk = false;
+
   })
 });

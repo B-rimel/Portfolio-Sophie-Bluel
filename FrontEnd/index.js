@@ -66,6 +66,7 @@ if (token) {
   const boutonHeader = document.createElement('button');
   boutonHeader.innerHTML = 'Publier les changements';
 
+  document.getElementsByClassName('photo-bluel').toggle('hidden');
   const navBar = document.getElementById('navBar');
   navBar.style.paddingTop = '76px';
 
