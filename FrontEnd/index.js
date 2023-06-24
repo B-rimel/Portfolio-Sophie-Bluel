@@ -66,7 +66,7 @@ if (token) {
   const boutonHeader = document.createElement('button');
   boutonHeader.innerHTML = 'Publier les changements';
 
-  document.getElementsByClassName('photo-bluel').toggle('hidden');
+  // document.getElementsByClassName('photo-bluel').toggle('hidden');
   const navBar = document.getElementById('navBar');
   navBar.style.paddingTop = '76px';
 
@@ -79,6 +79,12 @@ if (token) {
   modifierWorks.id = 'ouvrir-modale';
   modifierWorks.innerHTML = '<a href="#modal"><i class="fa-solid fa-pen-to-square"></i>Modifier</a>';
   sectionWorks.appendChild(modifierWorks);
+
+  const modifierBluel = document.createElement('figcaption');
+  const photoBluel = document.querySelector('#sectionIntroduction');
+  modifierBluel.innerHTML = '<i class="fa-solid fa-pen-to-square "></i>Modifier';
+  modifierBluel.id = 'boutonModif';
+  photoBluel.appendChild(modifierBluel);
 }
 
 // Ces lignes changent le texte "login" en "logout" si l'utilisateur est connecté

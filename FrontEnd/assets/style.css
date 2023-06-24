@@ -502,6 +502,14 @@ footer nav ul {
 	height: 14px;
 }
 
+#bouton-login, #bouton-login:visited {
+	color: black;
+}
+
+#ouvrir-modale a, #ouvrir-modale a:visited {
+	color: black;
+}
+
 .wrapper-galerie {
 	width: 80%;
 	margin: auto;
