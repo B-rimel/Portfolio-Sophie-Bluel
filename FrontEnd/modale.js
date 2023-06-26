@@ -265,6 +265,6 @@ formulaireWork.addEventListener('submit', (event) => {
     imgOk = false;
     titleOk = false;
     categoryOk = false;
-
+    checkEntries();
   })
 });
