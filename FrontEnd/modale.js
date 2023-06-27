@@ -223,7 +223,7 @@ champCategorie.addEventListener('change', event => {
 
 const formulaireWork = document.getElementById('input-form');
 
-formulaireWork.addEventListener('submit', (event) => {
+formulaireWork.addEventListener( 'submit', (event) => {
   event.preventDefault();
 
   const inputFile = document.getElementById('input-photo');
