@@ -88,7 +88,11 @@ if (token) {
 // Ces lignes changent le texte "login" en "logout" si l'utilisateur est connecté
 const boutonLogin = document.querySelector('#bouton_login');
 if (token) {
-  boutonLogin.innerText = 'logout'
+  boutonLogin.innerText = 'logout';
+  boutonLogin.href = './index.html';
+  boutonLogin.addEventListener('click', event => {
+    sessionStorage.removeItem('token');
+  })
 }
 else {
   boutonLogin.innerText = 'login';
