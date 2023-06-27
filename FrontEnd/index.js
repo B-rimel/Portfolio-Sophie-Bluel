@@ -6,7 +6,6 @@ const getProjectsFromAPI = await fetch('http://localhost:5678/api/categories');
 let categories = await getProjectsFromAPI.json();
 
 const token = sessionStorage.getItem('token');
-console.log(token);
 // Ces lignes affichent tout les projets dans la page à partir de getWorksFromAPI
 function genererListeProjets(projets) {
   const ficheWorks = document.querySelector(".gallery");
@@ -35,7 +34,6 @@ const toutesCategories = {
   name: 'Tous',
 }
 categories.unshift(toutesCategories);
-console.log(categories);
 
 
 // Ces lignes crééent les boutons de filtre, seulement si l'utilisateur n'est pas connecté

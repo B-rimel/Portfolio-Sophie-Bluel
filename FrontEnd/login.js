@@ -16,7 +16,6 @@ form.addEventListener('submit', async (event) => {
    const loginCommand = await response.json();
    if (response.ok) {
       window.sessionStorage.setItem('token', loginCommand.token);
-      console.log(loginCommand.token);
       location.href = 'index.html';
    } else {
       alert('Vérifiez vos identifiants !');
