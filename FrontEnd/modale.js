@@ -104,7 +104,7 @@ function genererListeModale(projets) {
       event.preventDefault(); //Empêche le rafraichissement de la page
       const projetASupprimer = event.target.closest('#figure-grille');
       const projetId = projetASupprimer.dataset.id;
-      fetch(`http://localhost:5678/api/works/${projetId}`, {
+      fetch(`https://lucacampagna.alwaysdata.net/bluel/api/works/${projetId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       })
@@ -242,7 +242,7 @@ formulaireWork.addEventListener( 'submit', (event) => {
 
   console.log(dataFormulaire);
 
-  fetch(`http://localhost:5678/api/works`, {
+  fetch(`https://lucacampagna.alwaysdata.net/bluel/api/works`, {
     method: 'POST',
     body: dataFormulaire,
     headers: {'Authorization': `Bearer ${token}`}

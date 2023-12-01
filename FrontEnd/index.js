@@ -1,8 +1,8 @@
 //  Ces lignes appellent les projets et les catégories dans l'API
-const getWorksFromAPI = await fetch('http://lucacampagna.alwaysdata.net/bluel/api/works');
+const getWorksFromAPI = await fetch('https://lucacampagna.alwaysdata.net/bluel/api/works');
 let projets = await getWorksFromAPI.json();
 
-const getProjectsFromAPI = await fetch('http://lucacampagna.alwaysdata.net/bluel/api/categories');
+const getProjectsFromAPI = await fetch('https://lucacampagna.alwaysdata.net/bluel/api/categories');
 let categories = await getProjectsFromAPI.json();
 
 const token = sessionStorage.getItem('token');

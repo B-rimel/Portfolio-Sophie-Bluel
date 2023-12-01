@@ -114,13 +114,14 @@ body {
 ol,
 ul,
 a {
+	color: black;
 	list-style: none;
 	text-decoration: none;
 }
 
 a:visited {
 	text-decoration: none;
-	color: inherit;
+	color: black;
 }
 
 blockquote,
